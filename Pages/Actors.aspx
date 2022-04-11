@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Actor" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Actors.aspx.cs" Inherits="RopeyDVDs.Pages.Actors" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../Content/Css/Actor.css" rel="stylesheet" />
+    <link href="../Content/Css/Global.css" rel="stylesheet" />
     <%-- <h2><%: Title %></h2>--%>
 
     <div class="container">
@@ -25,8 +25,6 @@
         </div>
 
 
-
-
         <asp:GridView ID="actorview" class="table table-responsive table-striped" runat="server">
             <Columns>
                 <asp:BoundField HeaderText="Actions" />
@@ -34,7 +32,4 @@
         </asp:GridView>
 
     </div>
-
-
-
 </asp:Content>

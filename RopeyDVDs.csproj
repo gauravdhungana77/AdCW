@@ -152,7 +152,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Css\Actor.css" />
+    <Content Include="Content\Css\Global.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -168,6 +168,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\Actors.aspx" />
+    <Content Include="Pages\DVDCategory.aspx" />
+    <Content Include="Pages\Producer.aspx" />
+    <Content Include="Pages\Studio.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -236,8 +239,32 @@
     <Compile Include="Pages\Actors.aspx.designer.cs">
       <DependentUpon>Actors.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DVDCategory.aspx.cs">
+      <DependentUpon>DVDCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DVDCategory.aspx.designer.cs">
+      <DependentUpon>DVDCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Producer.aspx.cs">
+      <DependentUpon>Producer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Producer.aspx.designer.cs">
+      <DependentUpon>Producer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Studio.aspx.cs">
+      <DependentUpon>Studio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Studio.aspx.designer.cs">
+      <DependentUpon>Studio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ActorRepo.cs" />
+    <Compile Include="Repository\DVDCategoryRepo.cs" />
+    <Compile Include="Repository\ProducerRepo.cs" />
+    <Compile Include="Repository\StudioRepo.cs" />
     <Compile Include="Services\GlobalConnection.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
