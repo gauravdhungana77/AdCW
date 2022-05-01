@@ -31,5 +31,16 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+
+        public int UpdateStudio(int studionumber, String sname)
+        {
+            cmd = new SqlCommand("Update Studio set StudioName = @sname where StudioNumber = @studionumber", gb.cn);
+            cmd.Parameters.AddWithValue("@sname", sname);
+            cmd.Parameters.AddWithValue("@studionumber", studionumber);
+
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

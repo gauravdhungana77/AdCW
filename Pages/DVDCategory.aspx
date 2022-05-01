@@ -6,6 +6,7 @@
 
     <div class="container">
         <div class="formdiv">
+            <asp:TextBox ID="categorynumber" runat="server" Visible="false"></asp:TextBox>
             <div class="form-group row">
                 <label for="catdesc" class="col-sm-2 col-form-label">Category Description</label>
                 <div class="col-sm-10">
@@ -15,16 +16,26 @@
             <div class="form-group row">
                 <label for="agerestr" class="col-sm-2 col-form-label">Age Restricted</label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="ageresttxt" class="form-control" runat="server" placeholder="Age Restricted"></asp:TextBox>
+                    <div class="col-sm-10">
+                        <asp:DropDownList ID="ageresttxtdrop" runat="server">
+                            <asp:ListItem>Yes</asp:ListItem>
+                            <asp:ListItem>No</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                 </div>
             </div>
             <div>
-                <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"  />
+                <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
+                <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit" OnClick="edit_Click"/>
             </div>
         </div>
-        <asp:GridView ID="dvdcategoryview" class="table table-responsive table-striped" runat="server">
+        <asp:GridView ID="dvdcategoryview" class="table table-responsive table-striped" OnRowCommand="dvdcategoryviewCommand" runat="server">
             <Columns>
-                <asp:BoundField HeaderText="Actions" />
+                <asp:TemplateField HeaderText="Action">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" CommandArgument='<%#Bind("CategoryNumber") %>' runat="server">Edit</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </div>

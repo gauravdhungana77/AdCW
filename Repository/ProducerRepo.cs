@@ -31,5 +31,16 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+
+        public int UpdateProducer(int producernumber, String pname)
+        {
+            cmd = new SqlCommand("Update Producer set ProducerName = @pname where ProducerNumber = @producernumber", gb.cn);
+            cmd.Parameters.AddWithValue("@pname", pname);
+            cmd.Parameters.AddWithValue("@producernumber", producernumber);
+
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

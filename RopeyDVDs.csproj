@@ -168,9 +168,22 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\Actors.aspx" />
+    <Content Include="Pages\CastMember.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
+    <Content Include="Pages\DVDCopy.aspx" />
+    <Content Include="Pages\DVDInfo.aspx" />
+    <Content Include="Pages\DVDTitle.aspx" />
+    <Content Include="Pages\ExpiredDvdCopies.aspx" />
+    <Content Include="Pages\InactiveDvdCopies.aspx" />
+    <Content Include="Pages\InactiveMembers.aspx" />
+    <Content Include="Pages\Loan.aspx" />
+    <Content Include="Pages\LoanType.aspx" />
+    <Content Include="Pages\Member.aspx" />
+    <Content Include="Pages\MembershipCategory.aspx" />
     <Content Include="Pages\Producer.aspx" />
+    <Content Include="Pages\Search.aspx" />
     <Content Include="Pages\Studio.aspx" />
+    <Content Include="Pages\User.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -239,12 +252,89 @@
     <Compile Include="Pages\Actors.aspx.designer.cs">
       <DependentUpon>Actors.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CastMember.aspx.cs">
+      <DependentUpon>CastMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CastMember.aspx.designer.cs">
+      <DependentUpon>CastMember.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DVDCategory.aspx.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\DVDCategory.aspx.designer.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DVDCopy.aspx.cs">
+      <DependentUpon>DVDCopy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DVDCopy.aspx.designer.cs">
+      <DependentUpon>DVDCopy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DVDInfo.aspx.cs">
+      <DependentUpon>DVDInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DVDInfo.aspx.designer.cs">
+      <DependentUpon>DVDInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DVDTitle.aspx.cs">
+      <DependentUpon>DVDTitle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DVDTitle.aspx.designer.cs">
+      <DependentUpon>DVDTitle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpiredDvdCopies.aspx.cs">
+      <DependentUpon>ExpiredDvdCopies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExpiredDvdCopies.aspx.designer.cs">
+      <DependentUpon>ExpiredDvdCopies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InactiveDvdCopies.aspx.cs">
+      <DependentUpon>InactiveDvdCopies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InactiveDvdCopies.aspx.designer.cs">
+      <DependentUpon>InactiveDvdCopies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InactiveMembers.aspx.cs">
+      <DependentUpon>InactiveMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InactiveMembers.aspx.designer.cs">
+      <DependentUpon>InactiveMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loan.aspx.cs">
+      <DependentUpon>Loan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Loan.aspx.designer.cs">
+      <DependentUpon>Loan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoanType.aspx.cs">
+      <DependentUpon>LoanType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LoanType.aspx.designer.cs">
+      <DependentUpon>LoanType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Member.aspx.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Member.aspx.designer.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MembershipCategory.aspx.cs">
+      <DependentUpon>MembershipCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MembershipCategory.aspx.designer.cs">
+      <DependentUpon>MembershipCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Producer.aspx.cs">
       <DependentUpon>Producer.aspx</DependentUpon>
@@ -253,6 +343,13 @@
     <Compile Include="Pages\Producer.aspx.designer.cs">
       <DependentUpon>Producer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Studio.aspx.cs">
       <DependentUpon>Studio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -260,11 +357,31 @@
     <Compile Include="Pages\Studio.aspx.designer.cs">
       <DependentUpon>Studio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ActorRepo.cs" />
+    <Compile Include="Repository\CastMemberRepo.cs" />
     <Compile Include="Repository\DVDCategoryRepo.cs" />
+    <Compile Include="Repository\DVDCopyRepo.cs" />
+    <Compile Include="Repository\DVDInfoRepo.cs" />
+    <Compile Include="Repository\DVDTitleRepo.cs" />
+    <Compile Include="Repository\ExpiredCopiesRepo.cs" />
+    <Compile Include="Repository\InactiveDvdCopiesRepo.cs" />
+    <Compile Include="Repository\InactiveMembersRepo.cs" />
+    <Compile Include="Repository\LoanRepo.cs" />
+    <Compile Include="Repository\LoanTypeRepo.cs" />
+    <Compile Include="Repository\MemberRepo.cs" />
+    <Compile Include="Repository\MembershipCategoryRepo.cs" />
     <Compile Include="Repository\ProducerRepo.cs" />
+    <Compile Include="Repository\SearchRepo.cs" />
     <Compile Include="Repository\StudioRepo.cs" />
+    <Compile Include="Repository\UserRepo.cs" />
     <Compile Include="Services\GlobalConnection.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

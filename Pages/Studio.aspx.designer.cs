@@ -15,6 +15,15 @@ namespace RopeyDVDs.Pages
     {
 
         /// <summary>
+        /// studionum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox studionum;
+
+        /// <summary>
         /// studionametxt control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button edit;
 
         /// <summary>
         /// studioview control.

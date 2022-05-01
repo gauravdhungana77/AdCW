@@ -34,5 +34,20 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+        public void DeleteActor()
+        {
+           
+        }
+
+        public int UpdateActor(int actornumber, String surname, String firstname)
+        {
+            cmd = new SqlCommand("Update Actor set ActorSurname = @surname,ActorFirstName=@firstname where ActorNumber = @actornumber", gb.cn);
+            cmd.Parameters.AddWithValue("@surname", surname);
+            cmd.Parameters.AddWithValue("@firstname", firstname);
+            cmd.Parameters.AddWithValue("@actornumber", actornumber);
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

@@ -15,6 +15,15 @@ namespace RopeyDVDs.Pages
     {
 
         /// <summary>
+        /// categorynumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox categorynumber;
+
+        /// <summary>
         /// catdesctxt control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.TextBox catdesctxt;
 
         /// <summary>
-        /// ageresttxt control.
+        /// ageresttxtdrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ageresttxt;
+        protected global::System.Web.UI.WebControls.DropDownList ageresttxtdrop;
 
         /// <summary>
         /// Button1 control.
@@ -40,6 +49,15 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button edit;
 
         /// <summary>
         /// dvdcategoryview control.

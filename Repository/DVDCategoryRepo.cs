@@ -32,5 +32,15 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+        public int UpdateDvdCategory(int categorynumber, String categorydescription, String agerestricted)
+        {
+            cmd = new SqlCommand("Update DVDCategory set CategoryDescription = @categorydescription,AgeRestricted=@agerestricted where CategoryNumber = @categorynumber", gb.cn);
+            cmd.Parameters.AddWithValue("@categorydescription", categorydescription);
+            cmd.Parameters.AddWithValue("@agerestricted", agerestricted);
+            cmd.Parameters.AddWithValue("@categorynumber", categorynumber);
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

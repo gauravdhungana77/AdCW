@@ -1,6 +1,9 @@
 ﻿using RopeyDVDs.Repository;
+using RopeyDVDs.Services;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,7 +25,7 @@ namespace RopeyDVDs.Pages
         protected void Button1_Click(object sender, EventArgs e)
         {
             string catdesc = catdesctxt.Text;
-            string agerest = ageresttxt.Text;
+            string agerest = ageresttxtdrop.SelectedValue;
 
             int k = dVDCategory.AddDvdCategory(catdesc, agerest);
 
@@ -35,7 +38,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
             }
             catdesctxt.Text = "";
-            ageresttxt.Text = "";
+            
         }
 
         public void loaddvdcategory()
@@ -48,9 +51,46 @@ namespace RopeyDVDs.Pages
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server due to ')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
             }
 
+        }
+
+        protected void dvdcategoryviewCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GlobalConnection gc = new GlobalConnection();
+            SqlCommand sql = new SqlCommand();
+            string index = Convert.ToString(e.CommandArgument);
+            string strdata = "Select * from DVDCategory where CategoryNumber ='" + index + "'";
+            SqlDataAdapter da = new SqlDataAdapter(strdata, gc.cn);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "DVDCategory");
+            DataTable dt = ds.Tables[0];
+
+            categorynumber.Text = dt.Rows[0]["CategoryNumber"].ToString();
+            catdesctxt.Text = dt.Rows[0]["CategoryDescription"].ToString();
+            ageresttxtdrop.SelectedValue = dt.Rows[0]["AgeRestricted"].ToString();
+
+        }
+
+        protected void edit_Click(object sender, EventArgs e)
+        {
+            string catdesc = catdesctxt.Text;
+            string agerest = ageresttxtdrop.SelectedValue;
+            string dvdcat = categorynumber.Text;
+            int k = dVDCategory.UpdateDvdCategory(Int32.Parse(dvdcat), catdesc, agerest);
+
+            if (k != 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                loaddvdcategory();
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+            }
+            catdesctxt.Text = "";
         }
     }
 }
