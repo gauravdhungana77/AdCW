@@ -27,7 +27,9 @@ namespace RopeyDVDs.Pages
           
             string lastname = surnametxt.Text;
             string firstname = firstnametxt.Text;
-            int k = actor.AddActor(lastname,firstname);
+            var random = new Random();
+            int actorid = random.Next();
+            int k = actor.AddActor(actorid,lastname,firstname);
          
             if (k !=0)
             {

@@ -25,9 +25,11 @@ namespace RopeyDVDs.Pages
         protected void Button1_Click(object sender, EventArgs e)
         {
             string studioname = studionametxt.Text;
-           
-            int k = studio.AddStudio(studioname);
+            var random = new Random();
+            int studioid = random.Next();
+            int k = studio.AddStudio(studioid,studioname);
 
+         
             if (k != 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);

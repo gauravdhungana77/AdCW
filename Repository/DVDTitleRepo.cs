@@ -13,9 +13,11 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-        public int Adddvdtitle(int catnumber, int studionum, int producernum,string dvdtitle,string daterelease,int standardcharge, int penaltycharge )
+        int k;
+        public int Adddvdtitle(int actornum,int id, int catnumber, int studionum, int producernum,string dvdtitle,string daterelease,int standardcharge, int penaltycharge )
         {
-            cmd = new SqlCommand("Insert into DVDTitle" + "(CategoryNumber,StudioNumber,ProducerNumber,DVDTitle,DateReleased,StandardCharge,PenaltyCharge) values " + "(@catnumber,@studionum,@producernum,@dvdtitle,@daterelease,@standardcharge,@penaltycharge)", gb.cn);
+            cmd = new SqlCommand("Insert into DVDTitle" + "(DVDNumber,CategoryNumber,StudioNumber,ProducerNumber,DVDTitle,DateReleased,StandardCharge,PenaltyCharge) values " + "(@id,@catnumber,@studionum,@producernum,@dvdtitle,@daterelease,@standardcharge,@penaltycharge)", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@catnumber", catnumber);
             cmd.Parameters.AddWithValue("@studionum", studionum);
             cmd.Parameters.AddWithValue("@producernum", producernum);
@@ -23,8 +25,16 @@ namespace RopeyDVDs.Repository
             cmd.Parameters.AddWithValue("@daterelease", daterelease);
             cmd.Parameters.AddWithValue("@standardcharge", standardcharge);
             cmd.Parameters.AddWithValue("@penaltycharge", penaltycharge);
-            int k = cmd.ExecuteNonQuery();
+             k = cmd.ExecuteNonQuery();
+            //gb.cn.Close();
+
+            cmd = new SqlCommand("Insert into CastMember" + "(DVDNumber,ActorNumber) values " + "(@id,@actornum)", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@actornum", actornum);
+
+            k = cmd.ExecuteNonQuery();
             gb.cn.Close();
+          
             return k;
         }
         public DataTable Getdvdcategory()
@@ -59,7 +69,14 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
-
+        public DataTable GetActors()
+        {
+            string qry = "Select * from Actor";
+            da = new SqlDataAdapter(qry, gb.cn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds.Tables[0];
+        }
         public int UpdateDvdTitle(int dvdnumber, int catnumber, int studionum, int producernum, string dvdtitle, string daterelease, int standardcharge, int penaltycharge)
         {
             cmd = new SqlCommand("Update DVDTitle set CategoryNumber = @catnumber,StudioNumber=@studionum,ProducerNumber=@producernum,DVDTitle=@dvdtitle,DateReleased=@daterelease,StandardCharge=@standardcharge,PenaltyCharge=@penaltycharge where DVDNumber = @dvdnumber", gb.cn);

@@ -6,6 +6,13 @@
     <div class="container">
         <div class="formdiv">
              <asp:TextBox ID="dvdnumber" runat="server" visible="false"></asp:TextBox>
+             <div class="form-group row">
+                <label for="actornumberdrop" class="col-sm-2 col-form-label">Actor Number</label>
+                <div class="col-sm-10">
+                    <asp:DropDownList ID="actornumberdrop" runat="server">                
+                    </asp:DropDownList>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="categorynumber" class="col-sm-2 col-form-label">Category Number</label>
                 <div class="col-sm-10">

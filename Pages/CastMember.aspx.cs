@@ -16,8 +16,8 @@ namespace RopeyDVDs.Pages
             
             if (!IsPostBack)
             {
-                loaddvdtitle();
-                loadactor();
+                //loaddvdtitle();
+                //loadactor();
                // loadcastmember();
                 joiningtables();
          
@@ -29,38 +29,38 @@ namespace RopeyDVDs.Pages
 
         }
 
-        public void loaddvdtitle()
-        {
-            try
-            {
+        //public void loaddvdtitle()
+        //{
+        //    try
+        //    {
 
-                dvdnumberdrop.DataTextField = castMember.Getdvdtitle().Columns["DVDTitle"].ToString();
-                dvdnumberdrop.DataValueField = castMember.Getdvdtitle().Columns["DVDNumber"].ToString();
-                dvdnumberdrop.DataSource = castMember.Getdvdtitle();
-                dvdnumberdrop.DataBind();
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
-            }
+        //        dvdnumberdrop.DataTextField = castMember.Getdvdtitle().Columns["DVDTitle"].ToString();
+        //        dvdnumberdrop.DataValueField = castMember.Getdvdtitle().Columns["DVDNumber"].ToString();
+        //        dvdnumberdrop.DataSource = castMember.Getdvdtitle();
+        //        dvdnumberdrop.DataBind();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
+        //    }
 
-        }
-        public void loadactor()
-        {
-            try
-            {
+        //}
+        //public void loadactor()
+        //{
+        //    try
+        //    {
 
-                actornumberdrop.DataTextField = castMember.Getactor().Columns["ActorFirstName"].ToString();
-                actornumberdrop.DataValueField = castMember.Getactor().Columns["ActorNumber"].ToString();
-                actornumberdrop.DataSource = castMember.Getactor();
-                actornumberdrop.DataBind();
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
-            }
+        //        actornumberdrop.DataTextField = castMember.Getactor().Columns["ActorFirstName"].ToString();
+        //        actornumberdrop.DataValueField = castMember.Getactor().Columns["ActorNumber"].ToString();
+        //        actornumberdrop.DataSource = castMember.Getactor();
+        //        actornumberdrop.DataBind();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
+        //    }
 
-        }
+        //}
 
         //public void loadcastmember()
         //{
@@ -90,24 +90,24 @@ namespace RopeyDVDs.Pages
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string dvdnumber = dvdnumberdrop.SelectedValue;
-            string actornumber = actornumberdrop.SelectedValue;
-            int k = castMember.Addcastmember(Int32.Parse(dvdnumber), Int32.Parse (actornumber));
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    string dvdnumber = dvdnumberdrop.SelectedValue;
+        //    string actornumber = actornumberdrop.SelectedValue;
+        //    int k = castMember.Addcastmember(Int32.Parse(dvdnumber), Int32.Parse (actornumber));
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+        //    if (k != 0)
+        //    {
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
 
-              //  loadcastmember();
-                joiningtables();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
-            }
-        }
+        //      //  loadcastmember();
+        //        joiningtables();
+        //    }
+        //    else
+        //    {
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+        //    }
+        //}
 
  
 

@@ -15,9 +15,10 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-        public int AddActor(String surname, String firstname)
+        public int AddActor(int actorid,String surname, String firstname)
         {
-            cmd = new SqlCommand("Insert into Actor" + "(ActorSurname,ActorFirstName) values " + "(@surname,@firstname)", gb.cn);
+            cmd = new SqlCommand("Insert into Actor" + "(ActorNumber,ActorSurname,ActorFirstName) values " + "(@actorid,@surname,@firstname)", gb.cn);
+            cmd.Parameters.AddWithValue("@actorid", actorid);
             cmd.Parameters.AddWithValue("@surname", surname);
             cmd.Parameters.AddWithValue("@firstname", firstname);
             int k = cmd.ExecuteNonQuery();

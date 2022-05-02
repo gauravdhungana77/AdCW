@@ -25,8 +25,9 @@ namespace RopeyDVDs.Pages
         protected void Button1_Click(object sender, EventArgs e)
         {
             string producername = producernametxt.Text;
-
-            int k = producer.AddProducer(producername);
+            var random = new Random();
+            int producerid = random.Next();
+            int k = producer.AddProducer(producerid, producername);
 
             if (k != 0)
             {

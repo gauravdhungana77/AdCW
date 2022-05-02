@@ -5,7 +5,8 @@
 
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
-        <div class="formdiv">
+        <h2>Dvd numbers along with their cast member numbers.</h2>
+       <%-- <div class="formdiv">
             <div class="form-group row">
                 <label for="dvdnumber" class="col-sm-2 col-form-label">DVD Title</label>
                 <div class="col-sm-10">
@@ -29,7 +30,7 @@
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
             </div>
-        </div>
+        </div>--%>
 
         <%--<asp:GridView ID="castmemberview" class="table table-responsive table-striped" runat="server"></asp:GridView>--%>
 

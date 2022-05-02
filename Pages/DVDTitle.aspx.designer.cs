@@ -24,6 +24,15 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.TextBox dvdnumber;
 
         /// <summary>
+        /// actornumberdrop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList actornumberdrop;
+
+        /// <summary>
         /// catnumdrop control.
         /// </summary>
         /// <remarks>

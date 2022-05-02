@@ -14,15 +14,17 @@ namespace RopeyDVDs.Pages
 	public partial class DVDTitle : System.Web.UI.Page
 	{
         DVDTitleRepo dVDTitle = new DVDTitleRepo();
+        ActorRepo actor = new ActorRepo();
 		protected void Page_Load(object sender, EventArgs e)
 		{
             if (!IsPostBack)
             {
                 loaddvdtitle();
+                loadActors();
                 loaddvdcategory();
                 loadproducer();
                 loadstudio();
-                
+                loadActors();
             }
         }
 
@@ -74,7 +76,22 @@ namespace RopeyDVDs.Pages
             }
 
         }
+        public void loadActors()
+        {
+            try
+            {
+                actornumberdrop.DataTextField = actor.GetActors().Columns["ActorFirstName"].ToString();
+                actornumberdrop.DataValueField = actor.GetActors().Columns["ActorNumber"].ToString();
+                actornumberdrop.DataSource = actor.GetActors();
+                actornumberdrop.DataBind();
 
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
+            }
+
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             int catnumber = Int32.Parse(catnumdrop.SelectedValue);
@@ -84,8 +101,12 @@ namespace RopeyDVDs.Pages
             string daterelease = Calendar.SelectedDate.ToShortDateString();
             int standardCharge = Int32.Parse(stdchargetxt.Text);
             int penaltycharge = Int32.Parse(peneltychargetxt.Text);
+            int actornum = Int32.Parse(actornumberdrop.SelectedValue);
 
-            int k = dVDTitle.Adddvdtitle(catnumber, studionumber, producernumber, dvdtitle, daterelease, standardCharge, penaltycharge);
+            var random = new Random();
+            int dvdid = random.Next();
+
+            int k = dVDTitle.Adddvdtitle(actornum, dvdid, catnumber, studionumber, producernumber, dvdtitle, daterelease, standardCharge, penaltycharge);
 
             if (k != 0)
             {

@@ -6,6 +6,7 @@
     <div class="container">
         <div class="formdiv">
             <asp:TextBox ID="actornumber"  runat="server" Visible="false"></asp:TextBox>
+           
             <div class="form-group row">
                 <label for="surname" class="col-sm-2 col-form-label">ActorSurname</label>
                 <div class="col-sm-10">
@@ -16,7 +17,7 @@
             <div class="form-group row">
                 <label for="firstname" class="col-sm-2 col-form-label">ActorFirstName</label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="firstnametxt" class="form-control" runat="server" placeholder="ActorSurname"></asp:TextBox>
+                    <asp:TextBox ID="firstnametxt" class="form-control" runat="server" placeholder="ActorFirstname"></asp:TextBox>
                 </div>
             </div>
             <div>

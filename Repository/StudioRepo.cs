@@ -13,9 +13,10 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-        public int AddStudio(String sname)
+        public int AddStudio(int studioid,String sname)
         {
-            cmd = new SqlCommand("Insert into Studio" + "(StudioName) values " + "(@sname)", gb.cn);
+            cmd = new SqlCommand("Insert into Studio" + "(StudioNumber,StudioName) values " + "(@studioid,@sname)", gb.cn);
+            cmd.Parameters.AddWithValue("@studioid", studioid);
             cmd.Parameters.AddWithValue("@sname", sname);           
             int k = cmd.ExecuteNonQuery();
             gb.cn.Close();

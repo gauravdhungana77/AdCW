@@ -13,9 +13,10 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-        public int AddProducer(String pname)
+        public int AddProducer(int producerid,String pname)
         {
-            cmd = new SqlCommand("Insert into Producer" + "(ProducerName) values " + "(@pname)", gb.cn);
+            cmd = new SqlCommand("Insert into Producer" + "(ProducerNumber,ProducerName) values " + "(@producerid,@pname)", gb.cn);
+            cmd.Parameters.AddWithValue("@producerid", producerid);
             cmd.Parameters.AddWithValue("@pname", pname);
             int k = cmd.ExecuteNonQuery();
             gb.cn.Close();
