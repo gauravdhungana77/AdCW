@@ -7,3 +7,15 @@
 .latestcopyloanedmodel{
     width:auto !important;
 }
+.drop a{
+    text-decoration:none;
+}
+.loginmain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.formdiv{
+    width:40vw;
+}

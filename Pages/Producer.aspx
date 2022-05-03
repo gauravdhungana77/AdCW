@@ -16,6 +16,7 @@
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
                  <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit" OnClick="edit_Click" />
+                 <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click" style="height: 36px"/>
             </div>
         </div>
         <asp:GridView ID="producerview" class="table table-responsive table-striped" OnRowCommand="producerviewNumber" runat="server">

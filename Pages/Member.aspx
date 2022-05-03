@@ -47,6 +47,7 @@
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" style="height: 36px"/>
                  <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit"  style="height: 36px" OnClick="edit_Click"/>
+                <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click"  />
             </div>
         </div>
         <asp:GridView ID="memberview" OnRowCommand="MemberviewCommand" class="table table-responsive table-striped" runat="server">

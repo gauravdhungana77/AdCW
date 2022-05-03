@@ -4,6 +4,7 @@
     <link href="../Content/Css/Global.css" rel="stylesheet" />
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
+         <h3>Inorder to add new dvdtitle with new producer, studio,actor <a runat="server" href="~/Pages/AddFreshDvd">Click Here</a> </h3>
         <div class="formdiv">
              <asp:TextBox ID="dvdnumber" runat="server" visible="false"></asp:TextBox>
              <div class="form-group row">
@@ -70,6 +71,7 @@
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
                 <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit" OnClick="edit_Click"  />
+                    <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click"/>
 
             </div>
         </div>
@@ -82,10 +84,6 @@
                     </asp:TemplateField>
                 </Columns>
         </asp:GridView>
-        <div>
-           
-        </div>
-        
 
     </div>
 </asp:Content>

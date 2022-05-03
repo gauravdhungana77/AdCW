@@ -11,35 +11,26 @@ namespace RopeyDVDs.Pages
 {
 
 
-    public partial class Member
+    public partial class AddFreshDvd
     {
 
         /// <summary>
-        /// membernumber control.
+        /// actornumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox membernumber;
+        protected global::System.Web.UI.WebControls.TextBox actornumber;
 
         /// <summary>
-        /// membershipcategorynumberdrop control.
+        /// surnametxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList membershipcategorynumberdrop;
-
-        /// <summary>
-        /// lastnametxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastnametxt;
+        protected global::System.Web.UI.WebControls.TextBox surnametxt;
 
         /// <summary>
         /// firstnametxt control.
@@ -51,22 +42,67 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.TextBox firstnametxt;
 
         /// <summary>
-        /// memberaddresstxt control.
+        /// producernametxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox memberaddresstxt;
+        protected global::System.Web.UI.WebControls.TextBox producernametxt;
 
         /// <summary>
-        /// dobcalander control.
+        /// studionametxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dobcalander;
+        protected global::System.Web.UI.WebControls.TextBox studionametxt;
+
+        /// <summary>
+        /// catnumdrop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList catnumdrop;
+
+        /// <summary>
+        /// dvdtitletxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dvdtitletxt;
+
+        /// <summary>
+        /// Calendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Calendar;
+
+        /// <summary>
+        /// stdchargetxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox stdchargetxt;
+
+        /// <summary>
+        /// peneltychargetxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox peneltychargetxt;
 
         /// <summary>
         /// Button1 control.
@@ -76,32 +112,5 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// edit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edit;
-
-        /// <summary>
-        /// delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button delete;
-
-        /// <summary>
-        /// memberview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView memberview;
     }
 }

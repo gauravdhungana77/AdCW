@@ -59,5 +59,13 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
+        public int DeleteMember(int id)
+        {
+            cmd = new SqlCommand("Delete from Member where MemberNumber = @id", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
+           int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

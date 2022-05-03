@@ -115,5 +115,30 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
             }
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int copyid = Int32.Parse(copynumber.Text);
+                int k = dVDCopy.DeleteDvdCopy(copyid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully deleted')", true);
+
+                    loaddvdcopy();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+            }
+        }
     }
 }

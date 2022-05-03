@@ -52,5 +52,13 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
+        public int DeleteDvdCopy(int id)
+        {
+            cmd = new SqlCommand("Delete from DVDCopy where DVDCopyNumber = @id", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
+           int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

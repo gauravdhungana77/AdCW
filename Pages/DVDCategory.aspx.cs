@@ -92,5 +92,30 @@ namespace RopeyDVDs.Pages
             }
             catdesctxt.Text = "";
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int dvdcategoryid = Int32.Parse(categorynumber.Text);
+                int k = dVDCategory.DeleteDvdCategory(dvdcategoryid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully deleted')", true);
+
+                    loaddvdcategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+            }
+        }
     }
 }

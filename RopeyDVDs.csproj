@@ -168,6 +168,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\Actors.aspx" />
+    <Content Include="Pages\AddFreshDvd.aspx" />
     <Content Include="Pages\CastMember.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
     <Content Include="Pages\DVDCopy.aspx" />
@@ -178,12 +179,14 @@
     <Content Include="Pages\InactiveMembers.aspx" />
     <Content Include="Pages\Loan.aspx" />
     <Content Include="Pages\LoanType.aspx" />
+    <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Member.aspx" />
     <Content Include="Pages\MembershipCategory.aspx" />
     <Content Include="Pages\Producer.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Pages\Studio.aspx" />
     <Content Include="Pages\User.aspx" />
+    <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -251,6 +254,13 @@
     </Compile>
     <Compile Include="Pages\Actors.aspx.designer.cs">
       <DependentUpon>Actors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddFreshDvd.aspx.cs">
+      <DependentUpon>AddFreshDvd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddFreshDvd.aspx.designer.cs">
+      <DependentUpon>AddFreshDvd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CastMember.aspx.cs">
       <DependentUpon>CastMember.aspx</DependentUpon>
@@ -322,6 +332,13 @@
     <Compile Include="Pages\LoanType.aspx.designer.cs">
       <DependentUpon>LoanType.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Member.aspx.cs">
       <DependentUpon>Member.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +381,13 @@
     <Compile Include="Pages\User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ActorRepo.cs" />
     <Compile Include="Repository\CastMemberRepo.cs" />
@@ -376,6 +400,7 @@
     <Compile Include="Repository\InactiveMembersRepo.cs" />
     <Compile Include="Repository\LoanRepo.cs" />
     <Compile Include="Repository\LoanTypeRepo.cs" />
+    <Compile Include="Repository\LoginRepo.cs" />
     <Compile Include="Repository\MemberRepo.cs" />
     <Compile Include="Repository\MembershipCategoryRepo.cs" />
     <Compile Include="Repository\ProducerRepo.cs" />

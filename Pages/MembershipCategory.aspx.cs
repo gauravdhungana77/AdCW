@@ -91,5 +91,29 @@ namespace RopeyDVDs.Pages
             categorydesctxt.Text = "";
             membershiploantxt.Text = "";
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int loanid = Int32.Parse(membershipcatnum.Text);
+                int k = category.DeleteMembershipCategory(loanid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully deleted')", true);
+
+                    GetMambershipCategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+            }
+        }
     }
 }

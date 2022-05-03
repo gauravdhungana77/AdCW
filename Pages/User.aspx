@@ -5,6 +5,7 @@
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
         <div class="formdiv">
+            <asp:TextBox ID="usernumber" Visible="false" runat="server"></asp:TextBox>
             <div class="form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
@@ -30,7 +31,7 @@
         </div>
 
 
-        <asp:GridView ID="userview" class="table table-responsive table-striped" OnRowCommand="userviewCommand" runat="server">
+       <%-- <asp:GridView ID="userview" class="table table-responsive table-striped" OnRowCommand="userviewCommand" runat="server">
              <Columns>                   
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
@@ -38,6 +39,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-        </asp:GridView>
+        </asp:GridView>--%>
     </div>
 </asp:Content>

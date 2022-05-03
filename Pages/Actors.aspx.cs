@@ -106,5 +106,30 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update actor details')", true);
             }
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int actorid = Int32.Parse(actornumber.Text);
+               int k =  actor.DeleteActor(actorid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully deleted')", true);
+                   
+                    loadvisitors();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+            }
+        
+        }
     }
 }

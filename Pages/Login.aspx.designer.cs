@@ -11,35 +11,44 @@ namespace RopeyDVDs.Pages
 {
 
 
-    public partial class MembershipCategory
+    public partial class Login
     {
 
         /// <summary>
-        /// membershipcatnum control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox membershipcatnum;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// categorydesctxt control.
+        /// usernametxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox categorydesctxt;
+        protected global::System.Web.UI.WebControls.TextBox usernametxt;
 
         /// <summary>
-        /// membershiploantxt control.
+        /// roledrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox membershiploantxt;
+        protected global::System.Web.UI.WebControls.DropDownList roledrop;
+
+        /// <summary>
+        /// passwordtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox passwordtxt;
 
         /// <summary>
         /// Button1 control.
@@ -49,32 +58,5 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// edit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edit;
-
-        /// <summary>
-        /// delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button delete;
-
-        /// <summary>
-        /// membershipcategoryview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView membershipcategoryview;
     }
 }

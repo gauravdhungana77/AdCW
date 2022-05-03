@@ -59,16 +59,28 @@
                         <li><a runat="server" href="~/Pages/DVDCategory">DVD Category</a></li>
                         <li><a runat="server" href="~/Pages/MembershipCategory">Membership Category</a></li>
                         <li><a runat="server" href="~/Pages/LoanType">Loan Type</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+                        <li class="nav-item dropdown" id="drop">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Links
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                               <a runat="server" href="~/Pages/Actors">Actor</a><br />
-                        <a runat="server" href="~/Pages/Studio">Studio</a>
-                       <a runat="server" href="~/Pages/Producer">Producer</a>
-                       <a runat="server" href="~/Pages/DVDCategory">DVD Category</a>
-                        <a runat="server" href="~/Pages/MembershipCategory">Membership Category</a>
-                        <a runat="server" href="~/Pages/LoanType">Loan Type</a>
+                       <%--     <a runat="server" href="~/Pages/Actors">Actor</a><br />
+                                <a runat="server" href="~/Pages/Studio">Studio</a><br />
+                                <a runat="server" href="~/Pages/Producer">Producer</a><br />
+                                <a runat="server" href="~/Pages/DVDCategory">DVD Category</a><br />
+                                <a runat="server" href="~/Pages/MembershipCategory">Membership Category</a><br />
+                                <a runat="server" href="~/Pages/LoanType">Loan Type</a><br />--%>
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/AddFreshDvd">Add Fresh Dvd</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/CastMember">Cast Member</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/DVDCopy">DVD Copy</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/DVDInfo">DVD Info</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/DVDTitle">DVD Title</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/ExpiredDvdCopies">Expired dvd copies</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/InactiveDvdCopies">Inactive dvd copies</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/InactiveMembers">Inactive Member</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/Loan">Loan</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/Member">Member</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/Search">Search</a><br />
+                                <a style="text-decoration:none;color:black;" runat="server" href="~/Pages/User">User</a><br />
                             </div>
                         </li>
                     </ul>
@@ -88,7 +100,7 @@
 
     </form>
 </body>
-       
+
 
 
 </html>

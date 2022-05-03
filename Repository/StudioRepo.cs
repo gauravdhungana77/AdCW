@@ -43,5 +43,13 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
+        public int DeleteStudio(int id)
+        {
+            cmd = new SqlCommand("Delete from Studio where StudioNumber = @id", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
+            int k= cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
     }
 }

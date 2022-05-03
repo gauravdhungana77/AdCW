@@ -61,6 +61,7 @@
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
                 <asp:Button class="btn btn-info button" ID="Editbutton" runat="server" Text="Edit" OnClick="Editbutton_Click"/>
+                <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click"/>
             </div>
         </div>
         <asp:GridView ID="loanview" OnRowCommand="loancommandview" class="table table-responsive table-striped" runat="server">

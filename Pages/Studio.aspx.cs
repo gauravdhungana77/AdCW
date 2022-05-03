@@ -90,5 +90,29 @@ namespace RopeyDVDs.Pages
             }
             studionametxt.Text = "";
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int studioid = Int32.Parse(studionum.Text);
+                int k = studio.DeleteStudio(studioid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully deleted')", true);
+
+                    loadstudio();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
+            }
+        }
     }
 }

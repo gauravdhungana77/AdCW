@@ -18,7 +18,7 @@ namespace RopeyDVDs.Pages
         {
             if (!IsPostBack)
             {
-                loadUsers();
+                //loadUsers();
             }
         }
 
@@ -42,33 +42,33 @@ namespace RopeyDVDs.Pages
             passwordtxt.Text = "";
         }
 
-        public void loadUsers()
-        {
-            try
-            {
-                userview.DataSource = user.GetUser();
-                userview.DataBind();
-                user = null;
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
-            }
+        //public void loadUsers()
+        //{
+        //    try
+        //    {
+        //        userview.DataSource = user.GetUser();
+        //        userview.DataBind();
+        //        user = null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
+        //    }
 
-        }
+        //}
         protected void userviewCommand(object sender, GridViewCommandEventArgs e)
         {
             GlobalConnection gc = new GlobalConnection();
             SqlCommand sql = new SqlCommand();
             string index = Convert.ToString(e.CommandArgument);
-            string strdata = "Select * from User where UserNumber ='" + index + "'";
+            string strdata = "Select * from Users where UserNumber ='" + index + "'";
             SqlDataAdapter da = new SqlDataAdapter(strdata, gc.cn);
 
             DataSet ds = new DataSet();
-            da.Fill(ds, "User");
+            da.Fill(ds, "Users");
             DataTable dt = ds.Tables[0];
-
-            usernametxt.Text = dt.Rows[0]["StudioName"].ToString();
+            usernumber.Text = dt.Rows[0]["UserNumber"].ToString();
+            usernametxt.Text = dt.Rows[0]["UserName"].ToString();
 
 
         }

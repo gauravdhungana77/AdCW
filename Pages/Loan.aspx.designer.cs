@@ -96,6 +96,15 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.Button Editbutton;
 
         /// <summary>
+        /// delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button delete;
+
+        /// <summary>
         /// loanview control.
         /// </summary>
         /// <remarks>
