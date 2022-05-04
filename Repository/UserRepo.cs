@@ -22,7 +22,15 @@ namespace RopeyDVDs.Repository
             int k = cmd.ExecuteNonQuery();
             gb.cn.Close();
             return k;
+        }
 
+        public DataTable CheckUser(string username)
+        {
+            string sql = "Select * from Users where UserName='" + username + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(sql, gb.cn);
+            DataSet ds = new DataSet();
+            sda.Fill(ds, "Users");
+            return ds.Tables[0];
         }
 
         public DataTable GetUser()

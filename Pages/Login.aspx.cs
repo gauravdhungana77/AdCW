@@ -35,12 +35,18 @@ namespace RopeyDVDs.Pages
                     string usertype = dt.Rows[0]["UserType"].ToString();
                     if (uname.Equals(username) && pwd.Equals(password) && usertype.Equals(role))
                     {
-                        //  Session["user_name"] = txtUsername.Text;
-                        Response.Cookies["admin"].Value = role;
-                        Response.Cookies["username"].Value = username;
+                        HttpCookie userInfo = new HttpCookie("userInfo");
+                        userInfo["username"] = uname;
+                        userInfo["role"] = usertype;
 
-                        Session["admin"] = role;
-                        Session["username"] = username;
+                       
+                        Response.Cookies.Add(userInfo);
+                        
+                        //Response.Cookies["role"].Value = usertype;
+                        //Response.Cookies["username"].Value = uname;
+
+                        Session["role"] = usertype;
+                        Session["username"] = uname;
 
                         Response.Redirect("https://localhost:44360/Default.aspx");
                     }

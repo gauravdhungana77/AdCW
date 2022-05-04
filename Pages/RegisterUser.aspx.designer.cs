@@ -33,13 +33,13 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.TextBox usernametxt;
 
         /// <summary>
-        /// usertypetxt control.
+        /// roledrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usertypetxt;
+        protected global::System.Web.UI.WebControls.DropDownList roledrop;
 
         /// <summary>
         /// passwordtxt control.
@@ -51,6 +51,15 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.TextBox passwordtxt;
 
         /// <summary>
+        /// confpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox confpassword;
+
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// userview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView userview;
     }
 }

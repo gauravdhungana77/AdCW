@@ -27,6 +27,7 @@
                 </div>
             </div>
         </div>
+        <%if (!role.Equals("Normal")){ %>
         <hr />
 
         <div>
@@ -51,7 +52,7 @@
                 </div>
             </div>
         </div>
-
+        <%} %>
     </div>
 
 

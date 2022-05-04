@@ -25,37 +25,48 @@ namespace RopeyDVDs.Pages
         protected void Button1_Click(object sender, EventArgs e)
         {
             string username = usernametxt.Text;
-            string usertype = usertypetxt.Text;
+            string usertype = roledrop.SelectedValue;
             string password = passwordtxt.Text;
-            int k = user.AddUser(username, usertype, password);
 
-            if (k != 0)
+            DataTable dt = user.CheckUser(username);
+
+            if (dt.Rows.Count == 0)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                int k = user.AddUser(username, usertype, password);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                usernametxt.Text = "";
+              
+                passwordtxt.Text = "";
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User with this username already exists.')", true);
             }
-            usernametxt.Text = "";
-            usertypetxt.Text = "";
-            passwordtxt.Text = "";
         }
 
-        //public void loadUsers()
-        //{
-        //    try
-        //    {
-        //        userview.DataSource = user.GetUser();
-        //        userview.DataBind();
-        //        user = null;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
-        //    }
 
-        //}
+        public void loadUsers()
+        {
+            try
+            {
+                userview.DataSource = user.GetUser();
+                userview.DataBind();
+                user = null;
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
+            }
+
+        }
         protected void userviewCommand(object sender, GridViewCommandEventArgs e)
         {
             GlobalConnection gc = new GlobalConnection();

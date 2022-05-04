@@ -12,9 +12,7 @@
     <form id="form1" runat="server">
         <div>
             <div class="loginmain">
-
-
-                <div class="formdiv">
+                <div class="loginformdiv">
                     <div class="form-group row mb-2">
                         <label for="username" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
@@ -32,6 +30,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
+
                     <div class="form-group row  mb-2">
                         <label for="password" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">

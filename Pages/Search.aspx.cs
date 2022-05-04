@@ -10,14 +10,24 @@ namespace RopeyDVDs.Pages
 {
     public partial class Search : System.Web.UI.Page
     {
-      
+        public string role = string.Empty;
+        public string username = string.Empty;
         SearchRepo search = new SearchRepo();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            loadcookies();
         }
-
-        protected void searchbtn_Click(object sender, EventArgs e)
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
+        }
+    
+    protected void searchbtn_Click(object sender, EventArgs e)
         {
             string searchvalue = searchbox.Text;
             if (!string.IsNullOrEmpty(searchvalue))
