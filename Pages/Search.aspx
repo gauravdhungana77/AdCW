@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%--<link href="../Content/Css/Global.css" rel="stylesheet" />--%>
-
+   
     <%--    View dvd title with number of copies.--%>
     <div class="container">
         <div>
@@ -15,6 +15,7 @@
                 </div>
             </div>
         </div>
+            <asp:GridView ID="jointableview" class="table table-responsive table-striped mt-3" runat="server"></asp:GridView>
         <hr />
 
         <div>
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
+          <asp:GridView ID="dvdcopiescount" class="table table-responsive table-striped mt-3" runat="server"></asp:GridView>
         <%if (!role.Equals("Normal")){ %>
         <hr />
 
@@ -40,6 +42,7 @@
                 </div>
             </div>
         </div>
+         <asp:GridView ID="gridview3" class="table table-responsive table-striped mt-3" runat="server"></asp:GridView>
         <hr />
 
         <div>
@@ -52,119 +55,11 @@
                 </div>
             </div>
         </div>
+          <asp:GridView ID="gridview4" class="table table-responsive table-striped mt-3" runat="server"></asp:GridView>
         <%} %>
     </div>
 
-
-
-
-    <%--    View dvd title of actor who is cast memeber.--%>
-    <div class="modal  fade" id="myModal" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <asp:GridView ID="jointableview" class="table table-responsive table-striped" runat="server"></asp:GridView>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <%--    View dvd title with number of copies.--%>
-    <!-- Modal -->
-    <div class="modal fade" id="copycount" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle2">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <asp:GridView ID="dvdcopiescount" class="table table-responsive table-striped" runat="server"></asp:GridView>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <%--    View dvd title  borrowed by member within 31 days--%>
-    <!-- Modal -->
-    <div class="modal fade" id="memberloan" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle3">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <asp:GridView ID="gridview3" class="table table-responsive table-striped" runat="server"></asp:GridView>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-      <%--    View latest copy of dvd loaned by the member--%>
-    <!-- Modal -->
-    <div class="modal fade" id="latestcopyloan" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="width:fit-content!important" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle4">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <asp:GridView ID="gridview4" class="table table-responsive table-striped" runat="server"></asp:GridView>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script type='text/javascript'>
-        function OpenModal() {
-            $('[id*=myModal]').modal('show');
-        }
-        function CopyCount() {
-            $('[id*=copycount]').modal('show');
-        }
-        function MemberLoan() {
-            $('[id*=memberloan]').modal('show');
-        }
-        function copyLoan() {
-            $('[id*=latestcopyloan]').modal('show');
-        }
-    </script>
-
+ 
 </asp:Content>
 
 

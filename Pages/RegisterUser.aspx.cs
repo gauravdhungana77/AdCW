@@ -18,7 +18,7 @@ namespace RopeyDVDs.Pages
         {
             if (!IsPostBack)
             {
-                //loadUsers();
+                loadUsers();
             }
         }
 
@@ -80,8 +80,77 @@ namespace RopeyDVDs.Pages
             DataTable dt = ds.Tables[0];
             usernumber.Text = dt.Rows[0]["UserNumber"].ToString();
             usernametxt.Text = dt.Rows[0]["UserName"].ToString();
+            roledrop.SelectedValue = dt.Rows[0]["UserType"].ToString();
+            passwordtxt.Text = dt.Rows[0]["UserPassword"].ToString();
+            confpassword.Text = dt.Rows[0]["UserPassword"].ToString();
 
 
+        }
+
+        protected void edit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int userid = Int32.Parse(usernumber.Text);
+                string UserName = usernametxt.Text;
+                string Password = passwordtxt.Text;
+                string confirmpasword = confpassword.Text;
+                string role = roledrop.SelectedValue;
+                DataTable dt = user.CheckUser(UserName);
+
+                if (Password.Equals(confirmpasword))
+                {
+                    int k = user.UpdateUser(userid, UserName, Password, role);
+
+                    if (k != 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User Updated Successfully')", true);
+                        loadUsers();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                    }
+                    usernametxt.Text = "";
+                    passwordtxt.Text = "";
+                    confpassword.Text = "";
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password and confirm password doesnot match')", true);
+                }
+
+            }
+            catch (FormatException)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter data in correct format')", true);
+            }
+
+
+        }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Userid = Int32.Parse(usernumber.Text);
+                int k = user.DeleteUser(Userid);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User Successfully deleted')", true);
+
+                    loadUsers();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete user')", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete user')", true);
+            }
         }
     }
 }

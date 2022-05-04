@@ -168,6 +168,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Main.Master" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\Actors.aspx" />
     <Content Include="Pages\AddFreshDvd.aspx" />

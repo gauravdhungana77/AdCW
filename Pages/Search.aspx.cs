@@ -38,7 +38,7 @@ namespace RopeyDVDs.Pages
                 //ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "Pop",
                 //       "OpenModal();",
                 //       true);
-                ClientScript.RegisterStartupScript(this.GetType(), "Pop", "OpenModal();", true);
+                //ClientScript.RegisterStartupScript(this.GetType(), "Pop", "OpenModal();", true);
                 //upModal.Update();
             }
 
@@ -56,7 +56,7 @@ namespace RopeyDVDs.Pages
                 dvdcopiescount.DataBind();
 
             
-                ClientScript.RegisterStartupScript(this.GetType(), "copycount", "CopyCount();", true);
+                //ClientScript.RegisterStartupScript(this.GetType(), "copycount", "CopyCount();", true);
                 
             }
 
@@ -73,7 +73,7 @@ namespace RopeyDVDs.Pages
                 gridview3.DataBind();
 
                 
-                ClientScript.RegisterStartupScript(this.GetType(), "memberloan", "MemberLoan();", true);
+                //ClientScript.RegisterStartupScript(this.GetType(), "memberloan", "MemberLoan();", true);
                
             }
 
@@ -94,7 +94,7 @@ namespace RopeyDVDs.Pages
                     gridview4.DataBind();
 
 
-                    ClientScript.RegisterStartupScript(this.GetType(), "latestcopyloan", "copyLoan();", true);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "latestcopyloan", "copyLoan();", true);
 
                 }
 

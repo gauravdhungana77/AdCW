@@ -44,6 +44,8 @@
             </div>
             <div>
                 <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+                 <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit" OnClick="edit_Click" />
+                  <asp:Button class="btn btn-danger button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click" />
             </div>
         </div>
 

@@ -42,6 +42,15 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.Button searchbtn;
 
         /// <summary>
+        /// jointableview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView jointableview;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button searchbtn2;
+
+        /// <summary>
+        /// dvdcopiescount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dvdcopiescount;
 
         /// <summary>
         /// Label3 control.
@@ -96,6 +114,15 @@ namespace RopeyDVDs.Pages
         protected global::System.Web.UI.WebControls.Button searchbtn3;
 
         /// <summary>
+        /// gridview3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridview3;
+
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -121,33 +148,6 @@ namespace RopeyDVDs.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button searchbtn4;
-
-        /// <summary>
-        /// jointableview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView jointableview;
-
-        /// <summary>
-        /// dvdcopiescount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dvdcopiescount;
-
-        /// <summary>
-        /// gridview3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridview3;
 
         /// <summary>
         /// gridview4 control.

@@ -33,6 +33,17 @@ namespace RopeyDVDs.Repository
             return ds.Tables[0];
         }
 
+        public int UpdateUser(int usernumber,String Username, String Password,string role)
+        {
+            cmd = new SqlCommand("Update Users set UserName = @Username, UserType=@role,UserPassword=@Password where UserNumber = @usernumber", gb.cn);
+            cmd.Parameters.AddWithValue("@Username", Username);
+            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@role", role);
+            cmd.Parameters.AddWithValue("@usernumber", usernumber);
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
+        }
         public DataTable GetUser()
         {
             string qry = "Select * from Users";
@@ -40,6 +51,14 @@ namespace RopeyDVDs.Repository
             DataSet ds = new DataSet();
             da.Fill(ds);
             return ds.Tables[0];
+        }
+        public int DeleteUser(int id)
+        {
+            cmd = new SqlCommand("Delete from Users where UserNumber = @id", gb.cn);
+            cmd.Parameters.AddWithValue("@id", id);
+            int k = cmd.ExecuteNonQuery();
+            gb.cn.Close();
+            return k;
         }
     }
 }
