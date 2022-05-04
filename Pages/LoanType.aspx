@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LoanType.aspx.cs" Inherits="RopeyDVDs.Pages.LoanType" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="LoanType.aspx.cs" Inherits="RopeyDVDs.Pages.LoanType" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -7,14 +7,14 @@
     <div class="container">
         <div class="formdiv">
               <asp:TextBox ID="loantypenumber" Visible="false"  runat="server" ></asp:TextBox>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="ltype" class="col-sm-2 col-form-label">Loan Type</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="loantypetxt" class="form-control" runat="server" placeholder="Loan Type "></asp:TextBox>
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="loanDuration" class="col-sm-2 col-form-label">Loan Duration</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="loandurationtxt" class="form-control" runat="server" placeholder="Loan Duration"></asp:TextBox>

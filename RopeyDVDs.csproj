@@ -166,10 +166,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="Main.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\Actors.aspx" />
     <Content Include="Pages\AddFreshDvd.aspx" />
     <Content Include="Pages\CastMember.aspx" />
+    <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
     <Content Include="Pages\DVDCopy.aspx" />
     <Content Include="Pages\DVDInfo.aspx" />
@@ -247,6 +250,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Actors.aspx.cs">
       <DependentUpon>Actors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,6 +277,13 @@
     </Compile>
     <Compile Include="Pages\CastMember.aspx.designer.cs">
       <DependentUpon>CastMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DVDCategory.aspx.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>

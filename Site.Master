@@ -59,16 +59,12 @@
                         <li><a runat="server" href="~/Pages/DVDCategory">DVD Category</a></li>
                         <li><a runat="server" href="~/Pages/MembershipCategory">Membership Category</a></li>
                         <li><a runat="server" href="~/Pages/LoanType">Loan Type</a></li>
+                        
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Links
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <%--     <a runat="server" href="~/Pages/Actors">Actor</a><br />
-                                <a runat="server" href="~/Pages/Studio">Studio</a><br />
-                                <a runat="server" href="~/Pages/Producer">Producer</a><br />
-                                <a runat="server" href="~/Pages/DVDCategory">DVD Category</a><br />
-                                <a runat="server" href="~/Pages/MembershipCategory">Membership Category</a><br />
-                                <a runat="server" href="~/Pages/LoanType">Loan Type</a><br />--%>
+                            
                                 <a style="text-decoration: none; color: black;" runat="server" href="~/Pages/Search">Search</a><br />
                                 <a style="text-decoration: none; color: black;" runat="server" href="~/Pages/RegisterUser">Add User</a><br />
                                 <%if (!role.Equals("Normal"))
@@ -95,7 +91,7 @@
                             </div>
                         </li>
                     </ul>
-                 
+
                 </div>
 
             </div>

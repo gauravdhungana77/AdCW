@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExpiredDvdCopies.aspx.cs" Inherits="RopeyDVDs.Pages.ExpiredDvdCpoies" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ExpiredDvdCopies.aspx.cs" Inherits="RopeyDVDs.Pages.ExpiredDvdCpoies" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />

@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="RopeyDVDs.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="Content/Css/Global.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--   <asp:ScriptManager runat="server">
+            <Scripts>
+             
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+              
+            </Scripts>
+        </asp:ScriptManager>--%>
+        <div>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Ropy DVD</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Ropy DVD</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                 <li class="nav-item">
+                                    <a class="nav-link active" runat="server" href="Default">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server" href="Pages/Search">Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/CastMember">Cast Member</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server" href="Pages/RegisterUser">Add User</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/DVDCopy">DVD Copy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server"  href="Pages/Actors">Actor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/DVDInfo">DVD Info</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server"  href="Pages/Studio">Studio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/DVDTitle">DVD Title</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server" href="Pages/Producer">Producer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/ExpiredDvdCopies">Expired dvd copies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server" href="Pages/DVDCategory">DVD Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/MembershipCategory">Membership Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server"  href="Pages/LoanType">Loan Type</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/AddFreshDvd">Add Fresh Dvd</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server"  href="Pages/InactiveDvdCopies">Inactive dvd copies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/InactiveMembers">Inactive Member</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link " runat="server"  href="Pages/Loan">Loan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="Pages/Member">Member</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a runat="server" class="dropdown-item" href="~/">Home</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/About">About</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Contact">Contact</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/Actors">Actor</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/Studio">Studio</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/Producer">Producer</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/DVDCategory">DVD Category</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/MembershipCategory">Membership Category</a></li>
+                                        <li><a runat="server" class="dropdown-item" href="~/Pages/LoanType">Loan Type</a></li>
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

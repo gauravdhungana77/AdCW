@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DVDCategory.aspx.cs" Inherits="RopeyDVDs.Pages.DVDCategory" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="DVDCategory.aspx.cs" Inherits="RopeyDVDs.Pages.DVDCategory" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -7,17 +7,17 @@
     <div class="container">
         <div class="formdiv">
             <asp:TextBox ID="categorynumber" runat="server" Visible="false"></asp:TextBox>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="catdesc" class="col-sm-2 col-form-label">Category Description</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="catdesctxt" class="form-control" runat="server" placeholder="Category Description"></asp:TextBox>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="agerestr" class="col-sm-2 col-form-label">Age Restricted</label>
                 <div class="col-sm-10">
                     <div class="col-sm-10">
-                        <asp:DropDownList ID="ageresttxtdrop" runat="server">
+                        <asp:DropDownList ID="ageresttxtdrop" class="form-control" runat="server">
                             <asp:ListItem>Yes</asp:ListItem>
                             <asp:ListItem>No</asp:ListItem>
                         </asp:DropDownList>

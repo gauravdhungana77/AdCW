@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Producer.aspx.cs" Inherits="RopeyDVDs.Pages.Producer" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Producer.aspx.cs" Inherits="RopeyDVDs.Pages.Producer" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -7,7 +7,7 @@
     <div class="container">
         <div class="formdiv">
              <asp:TextBox ID="producernum"  runat="server" visible="false" ></asp:TextBox>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="producername" class="col-sm-2 col-form-label">Producer Name</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="producernametxt" class="form-control" runat="server" placeholder="Producer Name"></asp:TextBox>

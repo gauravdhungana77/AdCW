@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MembershipCategory.aspx.cs" Inherits="RopeyDVDs.Pages.MembershipCategory" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="MembershipCategory.aspx.cs" Inherits="RopeyDVDs.Pages.MembershipCategory" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -6,14 +6,14 @@
     <div class="container">
         <div class="formdiv">
              <asp:TextBox ID="membershipcatnum"  runat="server" visible="false" ></asp:TextBox>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="categorydescription" class="col-sm-2 col-form-label">Membership Category Description</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="categorydesctxt" class="form-control" runat="server" placeholder="Category description"></asp:TextBox>
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="membershiploan" class="col-sm-2 col-form-label">Membership Category Total Loan</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="membershiploantxt" class="form-control" runat="server" placeholder="Total loan"></asp:TextBox>

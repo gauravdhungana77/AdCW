@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Actor" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Actors.aspx.cs" Inherits="RopeyDVDs.Pages.Actors" %>
+﻿<%@ Page Title="Actor" Language="C#" AutoEventWireup="true" MasterPageFile="~/Main.Master" CodeBehind="Actors.aspx.cs" Inherits="RopeyDVDs.Pages.Actors" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -7,7 +7,7 @@
         <div class="formdiv">
             <asp:TextBox ID="actornumber" runat="server" Visible="false"></asp:TextBox>
 
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="surname" class="col-sm-2 col-form-label">ActorSurname</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="surnametxt" class="form-control" runat="server" placeholder="ActorSurname"></asp:TextBox>
@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="firstname" class="col-sm-2 col-form-label">ActorFirstName</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="firstnametxt" class="form-control" runat="server" placeholder="ActorFirstname"></asp:TextBox>

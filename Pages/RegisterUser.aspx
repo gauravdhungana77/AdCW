@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterUser.aspx.cs" Inherits="RopeyDVDs.Pages.User" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="RegisterUser.aspx.cs" Inherits="RopeyDVDs.Pages.User" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Css/Global.css" rel="stylesheet" />
@@ -6,7 +6,7 @@
     <div class="container">
         <div class="formdiv">
             <asp:TextBox ID="usernumber" Visible="false" runat="server"></asp:TextBox>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="usernametxt" class="form-control" runat="server" placeholder="User Name"></asp:TextBox>
@@ -29,20 +29,20 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="passwordtxt" class="form-control" runat="server" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="password" class="col-sm-2 col-form-label">Conform-Password</label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="confpassword" class="form-control" runat="server" placeholder="Confform Password"></asp:TextBox>
                 </div>
             </div>
             <div>
-                <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
             </div>
         </div>
 
