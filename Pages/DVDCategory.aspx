@@ -5,6 +5,7 @@
     <%-- <h2><%: Title %></h2>--%>
 
     <div class="container">
+        <h4>Add new DVD Category</h4>
         <div class="formdiv">
             <asp:TextBox ID="categorynumber" runat="server" Visible="false"></asp:TextBox>
             <div class="form-group row mb-2">
@@ -16,12 +17,12 @@
             <div class="form-group row mb-2">
                 <label for="agerestr" class="col-sm-2 col-form-label">Age Restricted</label>
                 <div class="col-sm-10">
-                    <div class="col-sm-10">
+                    
                         <asp:DropDownList ID="ageresttxtdrop" class="form-control" runat="server">
                             <asp:ListItem>Yes</asp:ListItem>
                             <asp:ListItem>No</asp:ListItem>
                         </asp:DropDownList>
-                    </div>
+                    
                 </div>
             </div>
             <div>
@@ -30,6 +31,7 @@
                 <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click" />
             </div>
         </div>
+        <h4>Available DVD Category</h4>
         <asp:GridView ID="dvdcategoryview" class="table table-responsive table-striped" OnRowCommand="dvdcategoryviewCommand" runat="server">
             <Columns>
                 <asp:TemplateField HeaderText="Action">

@@ -4,6 +4,7 @@
     <link href="../Content/Css/Global.css" rel="stylesheet" />
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
+        <h4>Add new actor</h4>
         <div class="formdiv">
             <asp:TextBox ID="actornumber" runat="server" Visible="false"></asp:TextBox>
 
@@ -32,6 +33,7 @@
         </div>
 
         <div>
+            <h4>Available actors</h4>
             <asp:GridView ID="actorview" OnRowCommand="actorviewCommand" class="table table-responsive table-striped" runat="server">
                 <Columns>
                     <asp:TemplateField HeaderText="Action">

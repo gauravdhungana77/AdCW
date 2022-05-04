@@ -4,6 +4,7 @@
     <link href="../Content/Css/Global.css" rel="stylesheet" />
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
+        <h4>Register new user</h4>
         <div class="formdiv">
             <asp:TextBox ID="usernumber" Visible="false" runat="server"></asp:TextBox>
             <div class="form-group row mb-2">

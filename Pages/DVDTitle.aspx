@@ -4,7 +4,9 @@
     <link href="../Content/Css/Global.css" rel="stylesheet" />
     <%-- <h2><%: Title %></h2>--%>
     <div class="container">
+       
          <h3>Inorder to add new dvdtitle with new producer, studio,actor <a runat="server" href="~/Pages/AddFreshDvd">Click Here</a> </h3>
+         <h4>Add new DVD title</h4>
         <div class="formdiv">
              <asp:TextBox ID="dvdnumber" runat="server" visible="false"></asp:TextBox>
              <div class="form-group row mb-2">
@@ -75,6 +77,7 @@
 
             </div>
         </div>
+        <h4>Available dvd title</h4>
         <asp:GridView ID="dvdtitleview" OnRowCommand="dvdtitleviewCommand" class="table table-responsive table-striped" runat="server">
             <Columns>                   
                     <asp:TemplateField HeaderText="Action">

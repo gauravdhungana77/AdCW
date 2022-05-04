@@ -5,6 +5,7 @@
     <%-- <h2><%: Title %></h2>--%>
 
     <div class="container">
+        <h4>Add new studio</h4>
         <div class="formdiv">
             <asp:TextBox ID="studionum"  runat="server" visible ="false"></asp:TextBox>
             <div class="form-group row mb-2">
@@ -19,6 +20,7 @@
                   <asp:Button class="btn btn-info button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click"/>
             </div>
         </div>
+        <h4>Available studio</h4>
         <asp:GridView ID="studioview" class="table table-responsive table-striped" OnRowCommand="studioviewCommand" runat="server">
            <Columns>                   
                     <asp:TemplateField HeaderText="Action">
