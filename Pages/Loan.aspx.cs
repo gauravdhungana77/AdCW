@@ -139,8 +139,17 @@ namespace RopeyDVDs.Pages
             copynumberdrop.SelectedValue = dt.Rows[0]["CopyNumber"].ToString();
             membernumberdrop.SelectedValue = dt.Rows[0]["MemberNumber"].ToString();
             Dateout.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOut"].ToString());
-            Dateout.SelectMonthText = dt.Rows[0]["DateOut"].ToString();
             datedue.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateDue"].ToString());
+
+            if (string.IsNullOrEmpty((dt.Rows[0]["DateReturned"].ToString())))
+            {
+                datereturned.SelectedDate = Convert.ToDateTime("1/1/0001");
+            }
+            else
+            {
+                datereturned.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateReturned"].ToString());
+            }
+
             //sql = new SqlCommand("Delete from DVDCopy where CopyNumber = @copyid", gc.cn);
             //sql.Parameters.AddWithValue("@copyid", copyid);
             //sql.ExecuteNonQuery();
@@ -150,8 +159,8 @@ namespace RopeyDVDs.Pages
 
         protected void Editbutton_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 int loannumber = Int32.Parse(loansnumber.Text);
                 int loantypenumber = Int32.Parse(loantypenumdrop.SelectedValue);
                 int copynumber = Int32.Parse(copynumberdrop.SelectedValue);
@@ -159,7 +168,7 @@ namespace RopeyDVDs.Pages
                 string dateout = Dateout.SelectedDate.ToShortDateString();
                 string duedate = datedue.SelectedDate.ToShortDateString();
                 string returndate = datereturned.SelectedDate.ToShortDateString(); ;
-
+                
                 int k = loan.UpdateLoan(loannumber,loantypenumber, copynumber, membernumber, dateout, duedate, returndate);
 
                 if (k != 0)
@@ -177,11 +186,11 @@ namespace RopeyDVDs.Pages
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update loan details')", true);
                 }
                
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update loan details')", true);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update loan details')", true);
+            //}
         }
 
         protected void delete_Click(object sender, EventArgs e)

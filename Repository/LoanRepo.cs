@@ -102,19 +102,56 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+       
         public int UpdateLoan(int loannumber,int loantype, int copynum, int membernumber, string dateout, string datedue, string datereturned)
         {
-            cmd = new SqlCommand("Update Loan set LoanTypeNumber = @loantype,CopyNumber=@copynum,MemberNumber=@membernumber,DateOut=@dateout,DateDue=@datedue,DateReturned=@datereturned where LoanNumber = @loannumber", gb.cn);
-            cmd.Parameters.AddWithValue("@loantype", loantype);
-            cmd.Parameters.AddWithValue("@copynum", copynum);
-            cmd.Parameters.AddWithValue("@membernumber", membernumber);
-            cmd.Parameters.AddWithValue("@dateout", dateout);
-            cmd.Parameters.AddWithValue("@datedue", datedue);
-            cmd.Parameters.AddWithValue("@datereturned", datereturned);
-            cmd.Parameters.AddWithValue("@loannumber", loannumber);
+            int k = 0;
+            string qry = "Select PenaltyCharge from DVDTitle join DVDCopy on DVDTitle.DVDNumber =  DVDCopy.DVDNumber where CopyNumber = '" + copynum + "'; ";
+            da = new SqlDataAdapter(qry, gb.cn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            dt = ds.Tables[0];
+            int penaltycharge = Int32.Parse(dt.Rows[0]["PenaltyCharge"].ToString());
+            int totalcharge = 0;
+            if (datereturned.Equals("1/1/0001"))
+            {
+                cmd = new SqlCommand("Update Loan set LoanTypeNumber = @loantype,CopyNumber=@copynum,MemberNumber=@membernumber,DateOut=@dateout,DateDue=@datedue,DateReturned=null where LoanNumber = @loannumber", gb.cn);
+                cmd.Parameters.AddWithValue("@loantype", loantype);
+                cmd.Parameters.AddWithValue("@copynum", copynum);
+                cmd.Parameters.AddWithValue("@membernumber", membernumber);
+                cmd.Parameters.AddWithValue("@dateout", dateout);
+                cmd.Parameters.AddWithValue("@datedue", datedue);
+                cmd.Parameters.AddWithValue("@datereturned", datereturned);
+                cmd.Parameters.AddWithValue("@loannumber", loannumber);
 
-            int k = cmd.ExecuteNonQuery();
-            gb.cn.Close();
+                k = cmd.ExecuteNonQuery();
+                
+            }
+            else
+            {
+                DateTime duedate = Convert.ToDateTime(datedue);
+                DateTime returneddate = Convert.ToDateTime(datereturned);
+
+                if(returneddate > duedate)
+                {
+                    int diff = Convert.ToInt32((returneddate - duedate).TotalDays);
+                    totalcharge = diff * penaltycharge;
+                }
+
+                cmd = new SqlCommand("Update Loan set LoanTypeNumber = @loantype,CopyNumber=@copynum,MemberNumber=@membernumber,DateOut=@dateout,DateDue=@datedue,DateReturned=@datereturned,PenaltyAmount=@totalcharge where LoanNumber = @loannumber", gb.cn);
+                cmd.Parameters.AddWithValue("@loantype", loantype);
+                cmd.Parameters.AddWithValue("@copynum", copynum);
+                cmd.Parameters.AddWithValue("@membernumber", membernumber);
+                cmd.Parameters.AddWithValue("@dateout", dateout);
+                cmd.Parameters.AddWithValue("@datedue", datedue);
+                cmd.Parameters.AddWithValue("@datereturned", datereturned);
+                cmd.Parameters.AddWithValue("@loannumber", loannumber);
+                cmd.Parameters.AddWithValue("@totalcharge", totalcharge);
+                k = cmd.ExecuteNonQuery();
+                gb.cn.Close();
+                
+            }
             return k;
         }
 

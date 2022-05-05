@@ -173,10 +173,12 @@
     <Content Include="Pages\Actors.aspx" />
     <Content Include="Pages\AddFreshDvd.aspx" />
     <Content Include="Pages\CastMember.aspx" />
+    <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
     <Content Include="Pages\DVDCopy.aspx" />
     <Content Include="Pages\DVDInfo.aspx" />
+    <Content Include="Pages\DVDLoaned.aspx" />
     <Content Include="Pages\DVDTitle.aspx" />
     <Content Include="Pages\ExpiredDvdCopies.aspx" />
     <Content Include="Pages\InactiveDvdCopies.aspx" />
@@ -190,6 +192,7 @@
     <Content Include="Pages\Search.aspx" />
     <Content Include="Pages\Studio.aspx" />
     <Content Include="Pages\RegisterUser.aspx" />
+    <Content Include="Pages\TooManyDvd.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -279,6 +282,13 @@
     <Compile Include="Pages\CastMember.aspx.designer.cs">
       <DependentUpon>CastMember.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +316,13 @@
     </Compile>
     <Compile Include="Pages\DVDInfo.aspx.designer.cs">
       <DependentUpon>DVDInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DVDLoaned.aspx.cs">
+      <DependentUpon>DVDLoaned.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DVDLoaned.aspx.designer.cs">
+      <DependentUpon>DVDLoaned.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DVDTitle.aspx.cs">
       <DependentUpon>DVDTitle.aspx</DependentUpon>
@@ -398,9 +415,17 @@
     <Compile Include="Pages\RegisterUser.aspx.designer.cs">
       <DependentUpon>RegisterUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TooManyDvd.aspx.cs">
+      <DependentUpon>TooManyDvd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TooManyDvd.aspx.designer.cs">
+      <DependentUpon>TooManyDvd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ActorRepo.cs" />
     <Compile Include="Repository\CastMemberRepo.cs" />
+    <Compile Include="Repository\ChangePasswordRepo.cs" />
     <Compile Include="Repository\DVDCategoryRepo.cs" />
     <Compile Include="Repository\DVDCopyRepo.cs" />
     <Compile Include="Repository\DVDInfoRepo.cs" />
@@ -408,6 +433,7 @@
     <Compile Include="Repository\ExpiredCopiesRepo.cs" />
     <Compile Include="Repository\InactiveDvdCopiesRepo.cs" />
     <Compile Include="Repository\InactiveMembersRepo.cs" />
+    <Compile Include="Repository\LoanedDVDRepo.cs" />
     <Compile Include="Repository\LoanRepo.cs" />
     <Compile Include="Repository\LoanTypeRepo.cs" />
     <Compile Include="Repository\LoginRepo.cs" />
@@ -416,6 +442,7 @@
     <Compile Include="Repository\ProducerRepo.cs" />
     <Compile Include="Repository\SearchRepo.cs" />
     <Compile Include="Repository\StudioRepo.cs" />
+    <Compile Include="Repository\TooManyDvdRepo.cs" />
     <Compile Include="Repository\UserRepo.cs" />
     <Compile Include="Services\GlobalConnection.cs" />
     <Compile Include="Site.Master.cs">

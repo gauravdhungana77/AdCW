@@ -38,7 +38,7 @@ namespace RopeyDVDs.Pages
                         HttpCookie userInfo = new HttpCookie("userInfo");
                         userInfo["username"] = uname;
                         userInfo["role"] = usertype;
-
+                        
                        
                         Response.Cookies.Add(userInfo);
                         
