@@ -11,11 +11,28 @@ namespace RopeyDVDs.Pages
     public partial class DVDLoaned : System.Web.UI.Page
     {
         LoanedDVDRepo loanedDVD = new LoanedDVDRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             getloanneddvd();
+            loadcookies();
+            if (string.IsNullOrEmpty(role))
+            {
+
+                Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+            }
         }
 
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
+        }
         public void getloanneddvd()
         {
             try

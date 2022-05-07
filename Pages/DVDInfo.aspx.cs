@@ -11,9 +11,26 @@ namespace RopeyDVDs.Pages
     public partial class DVDInfo : System.Web.UI.Page
     {
         DVDInfoRepo dVDInfo = new DVDInfoRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             getdvdinfo();
+            loadcookies();
+            if (string.IsNullOrEmpty(role))
+            {
+
+                Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+            }
+        }
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
         }
 
         public void getdvdinfo()

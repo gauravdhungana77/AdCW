@@ -14,11 +14,19 @@ namespace RopeyDVDs.Pages
     public partial class Actors : System.Web.UI.Page
     {
         ActorRepo actor = new ActorRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 loadvisitors();
+                loadcookies();
+                if (string.IsNullOrEmpty(role))
+                {
+
+                    Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+                }
             }
         }
 
@@ -130,6 +138,16 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         
+        }
+
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
         }
     }
 }

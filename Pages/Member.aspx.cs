@@ -14,15 +14,31 @@ namespace RopeyDVDs.Pages
     public partial class Member : System.Web.UI.Page
     {
         MemberRepo member = new MemberRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 loadmembershipcategorynumber();
                 loadmember();
+                loadcookies();
+                if (string.IsNullOrEmpty(role))
+                {
+
+                    Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+                }
             }
         }
-
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
+        }
         public void loadmembershipcategorynumber()
         {
             try

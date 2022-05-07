@@ -14,13 +14,29 @@ namespace RopeyDVDs.Pages
     public partial class DVDCopy : System.Web.UI.Page
     {
         DVDCopyRepo dVDCopy = new DVDCopyRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 loaddvdnumber();
                 loaddvdcopy();
+                loadcookies();
+                if (string.IsNullOrEmpty(role))
+                {
 
+                    Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+                }
+            }
+        }
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
             }
         }
 
