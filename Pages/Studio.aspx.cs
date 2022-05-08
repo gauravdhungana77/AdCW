@@ -38,14 +38,14 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             string studioname = studionametxt.Text;
             var random = new Random();
             int studioid = random.Next();
-            int k = studio.AddStudio(studioid,studioname);
+            int k = studio.AddStudio(studioid, studioname);
 
-         
+
             if (k != 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
@@ -57,6 +57,7 @@ namespace RopeyDVDs.Pages
             }
             studionametxt.Text = "";
         }
+    
 
         public void loadstudio()
         {
@@ -130,5 +131,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+     
     }
 }

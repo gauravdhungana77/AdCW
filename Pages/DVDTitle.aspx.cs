@@ -108,7 +108,7 @@ namespace RopeyDVDs.Pages
             }
 
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             int catnumber = Int32.Parse(catnumdrop.SelectedValue);
             int studionumber = Int32.Parse(stdnumdrop.SelectedValue);
@@ -138,6 +138,7 @@ namespace RopeyDVDs.Pages
             }
 
         }
+ 
 
         public void loaddvdtitle()
         {
@@ -226,5 +227,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+      
     }
 }

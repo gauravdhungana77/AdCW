@@ -23,6 +23,7 @@ namespace RopeyDVDs.Pages
                 Response.Redirect("https://localhost:44360/Pages/Login.aspx");
             }
         }
+
         public void loadcookies()
         {
             HttpCookie reqCookies = Request.Cookies["userInfo"];

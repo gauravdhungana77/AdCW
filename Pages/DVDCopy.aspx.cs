@@ -39,8 +39,7 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             int dvdnumber = Int32.Parse(dvdnumberdrop.SelectedValue);
             string datepurchased = Calendar.SelectedDate.ToShortDateString();
@@ -60,6 +59,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
             }
         }
+      
 
         public void loaddvdnumber()
         {
@@ -156,5 +156,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+      
     }
 }

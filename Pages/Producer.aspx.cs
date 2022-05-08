@@ -38,7 +38,7 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             string producername = producernametxt.Text;
             var random = new Random();
@@ -56,6 +56,7 @@ namespace RopeyDVDs.Pages
             }
             producernametxt.Text = "";
         }
+      
 
         public void loadproducer()
         {
@@ -129,6 +130,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
-    
+
+      
     }
 }

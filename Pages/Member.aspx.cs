@@ -55,16 +55,16 @@ namespace RopeyDVDs.Pages
             }
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
+
             int membercategorynum = Int32.Parse(membershipcategorynumberdrop.SelectedValue);
             string lastname = lastnametxt.Text;
             string firstname = firstnametxt.Text;
             string memberaddress = memberaddresstxt.Text;
             string dateofbirth = dobcalander.SelectedDate.ToShortDateString();
 
-            int k = member.Addmember(membercategorynum,  lastname, firstname, memberaddress, dateofbirth);
+            int k = member.Addmember(membercategorynum, lastname, firstname, memberaddress, dateofbirth);
             if (k != 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
@@ -75,6 +75,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
             }
         }
+       
 
         public void loadmember()
         {
@@ -152,5 +153,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+      
     }
 }

@@ -11,6 +11,9 @@ namespace RopeyDVDs.Pages
     public partial class CastMember : System.Web.UI.Page
     {
         CastMemberRepo castMember = new CastMemberRepo();
+        public string role = string.Empty;
+        public string username = string.Empty;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -20,7 +23,13 @@ namespace RopeyDVDs.Pages
                 //loadactor();
                // loadcastmember();
                 joiningtables();
-         
+                loadcookies();
+                if (string.IsNullOrEmpty(role))
+                {
+
+                    Response.Redirect("https://localhost:44360/Pages/Login.aspx");
+                }
+
             }
          
           
@@ -68,7 +77,7 @@ namespace RopeyDVDs.Pages
         //    {
         //        castmemberview.DataSource = castMember.Getcastmember();
         //        castmemberview.DataBind();
-               
+
 
         //    }
         //    catch (Exception ex)
@@ -76,6 +85,15 @@ namespace RopeyDVDs.Pages
         //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to load data from server.')", true);
         //    }
         //}
+        public void loadcookies()
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                username = reqCookies["Username"].ToString();
+                role = reqCookies["role"].ToString();
+            }
+        }
         public void joiningtables()
         {
             try

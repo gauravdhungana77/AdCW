@@ -92,8 +92,7 @@ namespace RopeyDVDs.Pages
             }
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             int loantypenumber = Int32.Parse(loantypenumdrop.SelectedValue);
             int copynumber = Int32.Parse(copynumberdrop.SelectedValue);
@@ -112,7 +111,7 @@ namespace RopeyDVDs.Pages
                 //firstnametxt.Text = "";
                 //loadvisitors();
             }
-            else if(k == 2)
+            else if (k == 2)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member category limit reached')", true);
             }
@@ -120,8 +119,8 @@ namespace RopeyDVDs.Pages
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DVD is age restricted')", true);
             }
-
         }
+    
         public void loadloan()
         {
             try
@@ -234,5 +233,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+     
     }
 }

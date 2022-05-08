@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-</asp:Content--%>>
+</asp:Content--%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,8 +57,7 @@
                     <div class="form-group row  mb-2">
                         <label for="roledrop" class="col-sm-2 col-form-label">Role</label>
                         <div class="col-sm-10">
-                            <asp:DropDownList ID="roledrop" class="form-control" runat="server">
-                                <asp:ListItem>Normal</asp:ListItem>
+                            <asp:DropDownList ID="roledrop" class="form-control" runat="server">                              
                                 <asp:ListItem>Assistant</asp:ListItem>
                                 <asp:ListItem>Manager</asp:ListItem>
                             </asp:DropDownList>
@@ -72,7 +71,7 @@
                         </div>
                     </div>
                     <div>
-                        <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Login" OnClick="loginbtn_Click" />
+                        <asp:Button class="btn btn-info button" ID="Butaton1" runat="server" Text="Login" OnClick="loginbtn_Click" />
                     </div>
                 </div>
             </div>

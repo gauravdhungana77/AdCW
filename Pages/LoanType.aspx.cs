@@ -38,7 +38,7 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             string loantype = loantypetxt.Text;
             string duration = loandurationtxt.Text;
@@ -56,6 +56,8 @@ namespace RopeyDVDs.Pages
             loantypetxt.Text = "";
             loandurationtxt.Text = "";
         }
+
+
         public void loadLoanType()
         {
             try
@@ -130,5 +132,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+      
     }
 }

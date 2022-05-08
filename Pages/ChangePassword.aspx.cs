@@ -33,26 +33,34 @@ namespace RopeyDVDs.Pages
                 string newpass = newpasswordtxt.Text;
                 string confirmpassword = confpassword.Text;
 
-                if (newpass.Equals(confirmpassword))
+                if (!string.IsNullOrEmpty(currentpass) || !string.IsNullOrEmpty(newpass) || !string.IsNullOrEmpty(confirmpassword))
                 {
-                    int k = changepassword.ChangePassword(username, newpass);
 
-                    if (k != 0)
+                    if (newpass.Equals(confirmpassword))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password Successfully Changed')", true);
-                    
+                        int k = changepassword.ChangePassword(username, newpass);
+
+                        if (k != 0)
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password Successfully Changed')", true);
+
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to change password')", true);
+                        }
+                        currentpasswtxt.Text = "";
+                        newpasswordtxt.Text = "";
+                        confpassword.Text = "";
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to change password')", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password and confirm password doesnot match')", true);
                     }
-                    currentpasswtxt.Text = "";
-                    newpasswordtxt.Text = "";
-                    confpassword.Text = "";
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password and confirm password doesnot match')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
                 }
 
             }

@@ -39,7 +39,7 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void register_Click(object sender, EventArgs e)
         {
             string username = usernametxt.Text;
             string usertype = roledrop.SelectedValue;
@@ -54,13 +54,14 @@ namespace RopeyDVDs.Pages
                 if (k != 0)
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadUsers();
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
                 }
                 usernametxt.Text = "";
-              
+
                 passwordtxt.Text = "";
             }
             else
@@ -68,7 +69,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User with this username already exists.')", true);
             }
         }
-
+    
 
         public void loadUsers()
         {
@@ -169,5 +170,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete user')", true);
             }
         }
+
+    
     }
 }

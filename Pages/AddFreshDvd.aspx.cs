@@ -53,8 +53,7 @@ namespace RopeyDVDs.Pages
             }
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             string actorsurname = surnametxt.Text;
             string actorfirstnamename = firstnametxt.Text;
@@ -65,7 +64,16 @@ namespace RopeyDVDs.Pages
             string daterelease = Calendar.SelectedDate.ToShortDateString();
             int standardCharge = Int32.Parse(stdchargetxt.Text);
             int penaltycharge = Int32.Parse(peneltychargetxt.Text);
-           
+
+            if (!String.IsNullOrEmpty(actorsurname) || !String.IsNullOrEmpty(actorfirstnamename) || !String.IsNullOrEmpty(studioname) || !String.IsNullOrEmpty(producername) || !String.IsNullOrEmpty(dvdtitle) || !String.IsNullOrEmpty(daterelease) || standardCharge != 0 || penaltycharge != 0)
+            {
+
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
+
+            }
             var random = new Random();
             int dvdid = random.Next();
             int actoridid = random.Next();
@@ -80,7 +88,7 @@ namespace RopeyDVDs.Pages
             if (k != 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-              
+
                 //surnametxt.Text = "";
                 //firstnametxt.Text = "";
                 //loadvisitors();
@@ -89,6 +97,6 @@ namespace RopeyDVDs.Pages
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
             }
-        }
+        }          
     }
 }

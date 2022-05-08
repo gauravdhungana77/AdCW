@@ -39,7 +39,7 @@ namespace RopeyDVDs.Pages
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
             string catdesc = catdesctxt.Text;
             string agerest = ageresttxtdrop.SelectedValue;
@@ -55,9 +55,8 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
             }
             catdesctxt.Text = "";
-            
         }
-
+  
         public void loaddvdcategory()
         {
             try
@@ -134,5 +133,7 @@ namespace RopeyDVDs.Pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to delete data')", true);
             }
         }
+
+    
     }
 }

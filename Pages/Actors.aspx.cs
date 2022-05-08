@@ -29,28 +29,32 @@ namespace RopeyDVDs.Pages
                 }
             }
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void add_Click(object sender, EventArgs e)
         {
-          
             string lastname = surnametxt.Text;
             string firstname = firstnametxt.Text;
-            var random = new Random();
-            int actorid = random.Next();
-            int k = actor.AddActor(actorid,lastname,firstname);
-         
-            if (k !=0)
+            if (!String.IsNullOrEmpty(lastname) || !String.IsNullOrEmpty(lastname))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                surnametxt.Text = "";
-                firstnametxt.Text = "";
-                loadvisitors();
+                var random = new Random();
+                int actorid = random.Next();
+                int k = actor.AddActor(actorid, lastname, firstname);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    surnametxt.Text = "";
+                    firstnametxt.Text = "";
+                    loadvisitors();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-          
         }
 
         public void loadvisitors()
@@ -149,5 +153,7 @@ namespace RopeyDVDs.Pages
                 role = reqCookies["role"].ToString();
             }
         }
+
+      
     }
 }

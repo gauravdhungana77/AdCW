@@ -23,8 +23,7 @@
             <div class="form-group row  mb-2">
                 <label for="roledrop" class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-10">
-                    <asp:DropDownList ID="roledrop" class="form-control" runat="server">
-                        <asp:ListItem>Normal</asp:ListItem>
+                    <asp:DropDownList ID="roledrop" class="form-control" runat="server">                     
                         <asp:ListItem>Assistant</asp:ListItem>
                         <asp:ListItem>Manager</asp:ListItem>
                     </asp:DropDownList>
@@ -43,7 +42,7 @@
                 </div>
             </div>
             <div>
-                <asp:Button class="btn btn-info button" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+                <asp:Button class="btn btn-info button" ID="register" runat="server" Text="Register" OnClick="register_Click"/>
                  <asp:Button class="btn btn-info button" ID="edit" runat="server" Text="Edit" OnClick="edit_Click" />
                   <asp:Button class="btn btn-danger button" ID="delete" runat="server" Text="Delete" OnClick="delete_Click" />
             </div>

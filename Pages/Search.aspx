@@ -29,7 +29,7 @@
             </div>
         </div>
           <asp:GridView ID="dvdcopiescount" class="table table-responsive table-striped mt-3" runat="server"></asp:GridView>
-        <%if (!role.Equals("Normal")){ %>
+        <%if (!string.IsNullOrEmpty(role) && (role.Equals("Assistant") || role.Equals("Manager"))){ %>
         <hr />
 
         <div>
