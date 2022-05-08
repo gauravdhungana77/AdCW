@@ -42,19 +42,26 @@ namespace RopeyDVDs.Pages
         {
             string desc = categorydesctxt.Text;
             string loan = membershiploantxt.Text;
-            int k = category.Addmembershipcategory(desc, loan);
-
-            if (k != 0)
+            if (!string.IsNullOrEmpty(desc) || !string.IsNullOrEmpty(loan))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                GetMambershipCategory();
+                int k = category.Addmembershipcategory(desc, loan);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    GetMambershipCategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                categorydesctxt.Text = "";
+                membershiploantxt.Text = "";
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-            categorydesctxt.Text = "";
-            membershiploantxt.Text = "";
         }
     
         public void GetMambershipCategory()
@@ -90,22 +97,29 @@ namespace RopeyDVDs.Pages
 
         protected void edit_Click(object sender, EventArgs e)
         {
-            string desc = categorydesctxt.Text;
-            string loan = membershiploantxt.Text;
-            string membershipcatnumber = membershipcatnum.Text;
-            int k = category.UpdateMembershipCat(Int32.Parse(membershipcatnumber),desc, loan);
+            try
+            {
+                string desc = categorydesctxt.Text;
+                string loan = membershiploantxt.Text;
+                string membershipcatnumber = membershipcatnum.Text;
+                int k = category.UpdateMembershipCat(Int32.Parse(membershipcatnumber), desc, loan);
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
-                GetMambershipCategory();
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                    GetMambershipCategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                }
+                categorydesctxt.Text = "";
+                membershiploantxt.Text = "";
             }
-            else
+            catch(FormatException)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter value in correct format')", true);
             }
-            categorydesctxt.Text = "";
-            membershiploantxt.Text = "";
         }
 
         protected void delete_Click(object sender, EventArgs e)

@@ -44,29 +44,35 @@ namespace RopeyDVDs.Pages
             string username = usernametxt.Text;
             string usertype = roledrop.SelectedValue;
             string password = passwordtxt.Text;
-
-            DataTable dt = user.CheckUser(username);
-
-            if (dt.Rows.Count == 0)
+            if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(usertype) || !string.IsNullOrEmpty(password))
             {
-                int k = user.AddUser(username, usertype, password);
+                DataTable dt = user.CheckUser(username);
 
-                if (k != 0)
+                if (dt.Rows.Count == 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                    loadUsers();
+                    int k = user.AddUser(username, usertype, password);
+
+                    if (k != 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                        loadUsers();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                    }
+                    usernametxt.Text = "";
+
+                    passwordtxt.Text = "";
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User with this username already exists.')", true);
                 }
-                usernametxt.Text = "";
-
-                passwordtxt.Text = "";
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User with this username already exists.')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
         }
     

@@ -44,7 +44,7 @@ namespace RopeyDVDs.Repository
         }
         public int DeleteDvdCategory(int id)
         {
-            cmd = new SqlCommand("Delete from DVDCategroy where DVDCategoryNumber = @id", gb.cn);
+            cmd = new SqlCommand("Delete from DVDCategory where CategoryNumber = @id", gb.cn);
             cmd.Parameters.AddWithValue("@id", id);
            int k =  cmd.ExecuteNonQuery();
             gb.cn.Close();

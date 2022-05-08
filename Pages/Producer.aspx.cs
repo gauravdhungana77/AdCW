@@ -41,20 +41,27 @@ namespace RopeyDVDs.Pages
         protected void add_Click(object sender, EventArgs e)
         {
             string producername = producernametxt.Text;
-            var random = new Random();
-            int producerid = random.Next();
-            int k = producer.AddProducer(producerid, producername);
-
-            if (k != 0)
+            if (!string.IsNullOrEmpty(producername))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loadproducer();
+                var random = new Random();
+                int producerid = random.Next();
+                int k = producer.AddProducer(producerid, producername);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadproducer();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                producernametxt.Text = "";
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-            producernametxt.Text = "";
         }
       
 
@@ -91,20 +98,27 @@ namespace RopeyDVDs.Pages
 
         protected void edit_Click(object sender, EventArgs e)
         {
-            string producername = producernametxt.Text;
-            string producernumber = producernum.Text;
-            int k = producer.UpdateProducer(Int32.Parse(producernumber), producername);
+            try
+            {
+                string producername = producernametxt.Text;
+                string producernumber = producernum.Text;
+                int k = producer.UpdateProducer(Int32.Parse(producernumber), producername);
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
-                loadproducer();
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                    loadproducer();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                }
+                producernametxt.Text = "";
             }
-            else
+            catch(FormatException)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter value in correct format')", true);
             }
-            producernametxt.Text = "";
         }
 
         protected void delete_Click(object sender, EventArgs e)

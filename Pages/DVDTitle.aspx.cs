@@ -110,33 +110,45 @@ namespace RopeyDVDs.Pages
         }
         protected void add_Click(object sender, EventArgs e)
         {
-            int catnumber = Int32.Parse(catnumdrop.SelectedValue);
-            int studionumber = Int32.Parse(stdnumdrop.SelectedValue);
-            int producernumber = Int32.Parse(prdcnumdrop.SelectedValue);
-            string dvdtitle = dvdtitletxt.Text;
-            string daterelease = Calendar.SelectedDate.ToShortDateString();
-            int standardCharge = Int32.Parse(stdchargetxt.Text);
-            int penaltycharge = Int32.Parse(peneltychargetxt.Text);
-            int actornum = Int32.Parse(actornumberdrop.SelectedValue);
-
-            var random = new Random();
-            int dvdid = random.Next();
-
-            int k = dVDTitle.Adddvdtitle(actornum, dvdid, catnumber, studionumber, producernumber, dvdtitle, daterelease, standardCharge, penaltycharge);
-
-            if (k != 0)
+            try
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loaddvdtitle();
-                //surnametxt.Text = "";
-                //firstnametxt.Text = "";
-                //loadvisitors();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
-            }
+                int catnumber = Int32.Parse(catnumdrop.SelectedValue);
+                int studionumber = Int32.Parse(stdnumdrop.SelectedValue);
+                int producernumber = Int32.Parse(prdcnumdrop.SelectedValue);
+                string dvdtitle = dvdtitletxt.Text;
+                string daterelease = Calendar.SelectedDate.ToShortDateString();
+                int standardCharge = Int32.Parse(stdchargetxt.Text);
+                int penaltycharge = Int32.Parse(peneltychargetxt.Text);
+                int actornum = Int32.Parse(actornumberdrop.SelectedValue);
+                if (!string.IsNullOrEmpty(dvdtitle) || !string.IsNullOrEmpty(daterelease) || catnumber != 0 || studionumber != 0 || producernumber != 0 || standardCharge != 0 || penaltycharge != 0)
+                {
+                    var random = new Random();
+                    int dvdid = random.Next();
 
+                    int k = dVDTitle.Adddvdtitle(actornum, dvdid, catnumber, studionumber, producernumber, dvdtitle, daterelease, standardCharge, penaltycharge);
+
+                    if (k != 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                        loaddvdtitle();
+                        //surnametxt.Text = "";
+                        //firstnametxt.Text = "";
+                        //loadvisitors();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
+                }
+            }
+            catch(FormatException)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter values in correct format')", true);
+            }
         }
  
 

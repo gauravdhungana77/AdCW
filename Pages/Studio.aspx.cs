@@ -41,21 +41,30 @@ namespace RopeyDVDs.Pages
         protected void add_Click(object sender, EventArgs e)
         {
             string studioname = studionametxt.Text;
-            var random = new Random();
-            int studioid = random.Next();
-            int k = studio.AddStudio(studioid, studioname);
-
-
-            if (k != 0)
+            if (!string.IsNullOrEmpty(studioname))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loadstudio();
+
+
+                var random = new Random();
+                int studioid = random.Next();
+                int k = studio.AddStudio(studioid, studioname);
+
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadstudio();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                studionametxt.Text = "";
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-            studionametxt.Text = "";
         }
     
 

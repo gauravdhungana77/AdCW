@@ -35,7 +35,7 @@
              <Columns>                   
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" CommandArgument='<%#Bind("CopyNumber") %>' runat="server">Edit</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" CommandArgument='<%#Bind("CopyNumber") %>' runat="server">Select</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

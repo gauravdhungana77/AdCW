@@ -63,16 +63,24 @@ namespace RopeyDVDs.Pages
             string firstname = firstnametxt.Text;
             string memberaddress = memberaddresstxt.Text;
             string dateofbirth = dobcalander.SelectedDate.ToShortDateString();
-
-            int k = member.Addmember(membercategorynum, lastname, firstname, memberaddress, dateofbirth);
-            if (k != 0)
+            if (!string.IsNullOrEmpty(lastname) || !string.IsNullOrEmpty(firstname) || !string.IsNullOrEmpty(memberaddress) || !string.IsNullOrEmpty(dateofbirth) || membercategorynum != 0)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loadmember();
+
+
+                int k = member.Addmember(membercategorynum, lastname, firstname, memberaddress, dateofbirth);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadmember();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Pleasse fill all the fields.')", true);
             }
         }
        

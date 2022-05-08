@@ -101,23 +101,30 @@ namespace RopeyDVDs.Pages
             string duedate = datedue.SelectedDate.ToShortDateString();
             string returndate = null;
 
-            int k = loan.Addloan(loantypenumber, copynumber, membernumber, dateout, duedate, returndate);
+            if (loantypenumber != 0 || copynumber != 0 || membernumber != 0 || !string.IsNullOrEmpty(dateout) || !string.IsNullOrEmpty(duedate))
+            {
+                int k = loan.Addloan(loantypenumber, copynumber, membernumber, dateout, duedate, returndate);
 
-            if (k == 1)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loadloan();
-                //surnametxt.Text = "";
-                //firstnametxt.Text = "";
-                //loadvisitors();
+                if (k == 1)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadloan();
+                    //surnametxt.Text = "";
+                    //firstnametxt.Text = "";
+                    //loadvisitors();
+                }
+                else if (k == 2)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member category limit reached')", true);
+                }
+                else if (k == 3)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DVD is age restricted')", true);
+                }
             }
-            else if (k == 2)
+            else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member category limit reached')", true);
-            }
-            else if (k == 3)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DVD is age restricted')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Pleasse fill all the fields')", true);
             }
         }
     
@@ -176,8 +183,8 @@ namespace RopeyDVDs.Pages
 
         protected void Editbutton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 int loannumber = Int32.Parse(loansnumber.Text);
                 int loantypenumber = Int32.Parse(loantypenumdrop.SelectedValue);
                 int copynumber = Int32.Parse(copynumberdrop.SelectedValue);
@@ -202,12 +209,12 @@ namespace RopeyDVDs.Pages
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update loan details')", true);
                 }
-               
-            //}
-            //catch (Exception ex)
-            //{
-            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update loan details')", true);
-            //}
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter value in correct format')", true);
+            }
         }
 
         protected void delete_Click(object sender, EventArgs e)

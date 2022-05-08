@@ -42,22 +42,28 @@ namespace RopeyDVDs.Pages
         {
             string loantype = loantypetxt.Text;
             string duration = loandurationtxt.Text;
-            int k = loan.AddLoanType(loantype, duration);
-
-            if (k != 0)
+            if (!string.IsNullOrEmpty(loantype) || !string.IsNullOrEmpty(duration))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                loadLoanType();
+                int k = loan.AddLoanType(loantype, duration);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loadLoanType();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                loantypetxt.Text = "";
+                loandurationtxt.Text = "";
             }
+
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-            loantypetxt.Text = "";
-            loandurationtxt.Text = "";
         }
-
-
         public void loadLoanType()
         {
             try
@@ -91,22 +97,29 @@ namespace RopeyDVDs.Pages
 
         protected void edit_Click(object sender, EventArgs e)
         {
-            string loantype = loantypetxt.Text;
-            string duration = loandurationtxt.Text;
-            string loantypenum = loantypenumber.Text;
-            int k = loan.UpdateLoanType(Int32.Parse(loantypenum), loantype, duration);
+            try
+            {
+                string loantype = loantypetxt.Text;
+                string duration = loandurationtxt.Text;
+                string loantypenum = loantypenumber.Text;
+                int k = loan.UpdateLoanType(Int32.Parse(loantypenum), loantype, duration);
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
-                loadLoanType();
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                    loadLoanType();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                }
+                loantypetxt.Text = "";
+                loandurationtxt.Text = "";
             }
-            else
+            catch
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter value in correct format')", true);
             }
-            loantypetxt.Text = "";
-            loandurationtxt.Text = "";
         }
 
         protected void delete_Click(object sender, EventArgs e)

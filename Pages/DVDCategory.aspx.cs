@@ -44,17 +44,25 @@ namespace RopeyDVDs.Pages
             string catdesc = catdesctxt.Text;
             string agerest = ageresttxtdrop.SelectedValue;
 
-            int k = dVDCategory.AddDvdCategory(catdesc, agerest);
+            if(!string.IsNullOrEmpty(catdesc)|| !string.IsNullOrEmpty(agerest))
+            {
+                int k = dVDCategory.AddDvdCategory(catdesc, agerest);
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    loaddvdcategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
+                catdesctxt.Text = "";
             }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+            else{
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
-            catdesctxt.Text = "";
         }
   
         public void loaddvdcategory()
@@ -92,23 +100,31 @@ namespace RopeyDVDs.Pages
 
         protected void edit_Click(object sender, EventArgs e)
         {
-            string catdesc = catdesctxt.Text;
-            string agerest = ageresttxtdrop.SelectedValue;
-            string dvdcat = categorynumber.Text;
-            int k = dVDCategory.UpdateDvdCategory(Int32.Parse(dvdcat), catdesc, agerest);
+            try
+            {
 
-            if (k != 0)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
-                loaddvdcategory();
+
+                string catdesc = catdesctxt.Text;
+                string agerest = ageresttxtdrop.SelectedValue;
+                string dvdcat = categorynumber.Text;
+                int k = dVDCategory.UpdateDvdCategory(Int32.Parse(dvdcat), catdesc, agerest);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                    loaddvdcategory();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                }
+                catdesctxt.Text = "";
             }
-            else
+            catch(FormatException)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to update data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Enter value in correct format')", true);
             }
-            catdesctxt.Text = "";
         }
-
         protected void delete_Click(object sender, EventArgs e)
         {
 

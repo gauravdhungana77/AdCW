@@ -152,7 +152,24 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css\Default.css" />
     <Content Include="Content\Css\Global.css" />
+    <Content Include="Content\Images\1054161_6756230.jpg" />
+    <Content Include="Content\Images\5bff2157-7614-4183-a4a7-b9d14d3f9c9c.jpg" />
+    <Content Include="Content\Images\allu_arjun_pushpa_box_office_d_1200x768_0-sixteen_nine.jpeg" />
+    <Content Include="Content\Images\Bahubali-The-beginning.jpg" />
+    <Content Include="Content\Images\Captain_America_The_First_Avenger_poster.jpg" />
+    <Content Include="Content\Images\Deadpool_2_poster.jpg" />
+    <Content Include="Content\Images\dvd-cd-display-in-store.jpg" />
+    <Content Include="Content\Images\ironman.jpg" />
+    <Content Include="Content\Images\KGF-Interview.jpg" />
+    <Content Include="Content\Images\Krish-3-2013.jpg" />
+    <Content Include="Content\Images\man-of-steel-man-of-steel-34785819-1024-1492.png" />
+    <Content Include="Content\Images\mirzapur-2-twitter-review.jpg" />
+    <Content Include="Content\Images\peaky-blinders.jpg" />
+    <Content Include="Content\Images\p_avengersendgame_19751_e14a0104.jpeg" />
+    <Content Include="Content\Images\rrr-review.jpg" />
+    <Content Include="Content\Images\X-Men_-_Apocalypse.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -174,7 +191,6 @@
     <Content Include="Pages\AddFreshDvd.aspx" />
     <Content Include="Pages\CastMember.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
-    <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
     <Content Include="Pages\DVDCopy.aspx" />
     <Content Include="Pages\DVDInfo.aspx" />
@@ -288,13 +304,6 @@
     </Compile>
     <Compile Include="Pages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DVDCategory.aspx.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>

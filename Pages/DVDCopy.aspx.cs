@@ -43,20 +43,28 @@ namespace RopeyDVDs.Pages
         {
             int dvdnumber = Int32.Parse(dvdnumberdrop.SelectedValue);
             string datepurchased = Calendar.SelectedDate.ToShortDateString();
-
-            int k = dVDCopy.Adddvdcopy(dvdnumber, datepurchased);
-
-            if (k != 0)
+            if (dvdnumber != 0 || !string.IsNullOrEmpty(datepurchased))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-                //surnametxt.Text = "";
-                //firstnametxt.Text = "";
-                //loadvisitors();
-                loaddvdcopy();
+
+
+                int k = dVDCopy.Adddvdcopy(dvdnumber, datepurchased);
+
+                if (k != 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    //surnametxt.Text = "";
+                    //firstnametxt.Text = "";
+                    //loadvisitors();
+                    loaddvdcopy();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                }
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Unable to insert data')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please fill all the fields')", true);
             }
         }
       
