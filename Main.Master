@@ -48,12 +48,14 @@
                         </div>
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <%--Routes that can be accessed by normal users--%>
                                 <li class="nav-item">
                                     <a class="nav-link active" runat="server" href="Default">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link " runat="server" href="Pages/Search">Search</a>
                                 </li>
+                             <%--   The routes that can be acessed by both assistant and managers --%>
                                 <%if (!string.IsNullOrEmpty(role) && (role.Equals("Assistant") || role.Equals("Manager")))
                                     { %>
                                 <li class="nav-item">
@@ -91,6 +93,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" runat="server" href="Pages/Member">Member</a>
                                 </li>
+                              <%--  Routes that cna be accessed only by the managers--%>
                                 <%if (!string.IsNullOrEmpty(role) && role.Equals("Manager"))
                                     { %>
 
@@ -99,6 +102,7 @@
                                 </li>
                                 <%} %>
 
+                                 <%--  Routes that cna be accessed only by the Assistant--%>
                                 <%if (!string.IsNullOrEmpty(role) && role.Equals("Assistant"))
                                     { %>
 
@@ -106,6 +110,7 @@
                                     <a class="nav-link" runat="server" href="Pages/ChangePassword">Change Password</a>
                                 </li>
                                 <%} %>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reports
                                     </a>

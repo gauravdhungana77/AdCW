@@ -13,7 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-
+        //Adds new member to the into the datbase 
         public int Addmember(int membercategorynumber, string lastname, string firstname, string address, string dob)
         {
             cmd = new SqlCommand("Insert into Member" + "(MembershipCategoryNumber,MemberLastName,MemberFirstName,MemberAddress,MemberDateOfBirth) values " + "(@membercategorynumber,@lastname,@firstname,@address,@dob)", gb.cn);
@@ -45,6 +45,7 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+        //Updates the edited member details 
         public int UpdateMember(int membernumber, int membercategorynumber, string lastname, string firstname, string address, string dob)
         {
             cmd = new SqlCommand("Update Member set MembershipCategoryNumber = @membercategorynumber,MemberLastName=@lastname,MemberFirstName=@firstname,MemberAddress=@address,MemberDateOfBirth=@dob where MemberNumber = @membernumber", gb.cn);

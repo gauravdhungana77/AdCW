@@ -10,12 +10,13 @@ using Ubiety.Dns.Core;
 
 namespace RopeyDVDs.Repository
 {
+    //Class is responsible to  handle CRUD operation on Actor table.
     public class ActorRepo
     {
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-        public int AddActor(int actorid,String surname, String firstname)
+        public int AddActor(int actorid,String surname, String firstname)//Adds the actor to the database
         {
             cmd = new SqlCommand("Insert into Actor" + "(ActorNumber,ActorSurname,ActorFirstName) values " + "(@actorid,@surname,@firstname)", gb.cn);
             cmd.Parameters.AddWithValue("@actorid", actorid);
@@ -40,7 +41,7 @@ namespace RopeyDVDs.Repository
            
         }
 
-        public int UpdateActor(int actornumber, String surname, String firstname)
+        public int UpdateActor(int actornumber, String surname, String firstname)//takes edited information and updates the actors
         {
             cmd = new SqlCommand("Update Actor set ActorSurname = @surname,ActorFirstName=@firstname where ActorNumber = @actornumber", gb.cn);
             cmd.Parameters.AddWithValue("@surname", surname);
@@ -50,7 +51,7 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
-        public int DeleteActor(int id)
+        public int DeleteActor(int id)//Delets the actor
         {
             cmd = new SqlCommand("Delete from Actor where ActorNumber = @id", gb.cn);
             cmd.Parameters.AddWithValue("@id", id);

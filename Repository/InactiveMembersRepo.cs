@@ -13,7 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-
+        //List of dvd titles whose copy has not been loaned in the last 31 days
         public DataTable getinactivemembers()
         {
             string query = "select Loan.MemberNumber,Member.MemberFirstName,Member.MemberLastName,Member.MemberAddress,Loan.DateOut,DVDTitle.DVDTitle, DATEDIFF(day,Loan.DateOut,GETDATE()) AS 'No of days since last loan' from Loan join Member on Loan.MemberNumber = Member.MemberNumber join DVDCopy on Loan.CopyNumber =  DVDCopy.CopyNumber join DVDTitle on DVDCopy.DVDNumber = DVDTitle.DVDNumber where CONVERT(varchar(50),Loan.DateOut,105) <= GETDATE()-31;";

@@ -12,6 +12,8 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
+        
+        //takes username and new password and change the password.
         public int ChangePassword(string username, String Password)
         {
             cmd = new SqlCommand("Update Users set UserPassword=@Password where UserName = @username", gb.cn);            

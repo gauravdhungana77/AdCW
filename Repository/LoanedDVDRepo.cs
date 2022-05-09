@@ -13,7 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
-
+       // List of all DVD copies currently on loan, in date order of date out with the loans of a particular day ordered by the title.
         public DataTable getloaneddvd()
         {
             string query = "Select Max(DVDCopy.DVDNumber)DVDNumber,DVDTitle.DVDTitle, Max(DVDCopy.CopyNumber)CopyNumber,Max(Member.MemberFirstName)MemberFirstName,Max(Member.MemberLastName)MemberLastName,Max(Loan.DateOut)DateOut,COUNT(Loan.MemberNumber) Numberofloans from Loan join DVDCopy on Loan.CopyNumber =  DVDCopy.CopyNumber join DVDTitle on DVDCopy.DVDNumber = DVDTitle.DVDNumber  join Member on Loan.MemberNumber = Member.MemberNumber group by Loan.MemberNumber, Loan.DateOut,DVDTitle.DVDTitle order by Loan.DateOut,DVDTitle;";

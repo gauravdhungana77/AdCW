@@ -14,6 +14,7 @@ namespace RopeyDVDs.Repository
         SqlCommand cmd;
         SqlDataAdapter da;
 
+        //Displays the too many dvd message for the member who loaned more dvd then he/she is allowed from mebership category 
         public DataTable getoverloanedmembers()
         {
             string query = "Select Member.MemberFirstName,member.MemberLastName,Member.MemberDateOfBirth,Member.MemberAddress,MembershipCategory.MembershipCategoryTotalLoans ,  count(Loan.MemberNumber) TotalLoans,IIF(MembershipCategory.MembershipCategoryTotalLoans < count(Loan.MemberNumber), 'Too Many DVDs' , '') as message from member join MembershipCategory on Member.MembershipCategoryNumber = MembershipCategory.MembershipCategoryNumber full join Loan on Member.MemberNumber = Loan.MemberNumber group by Member.MemberFirstName,member.MemberLastName,Member.MemberDateOfBirth,Member.MemberAddress,MembershipCategory.MembershipCategoryTotalLoans;";

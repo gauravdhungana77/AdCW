@@ -15,10 +15,10 @@ namespace RopeyDVDs.Repository
         SqlCommand cmd;
         SqlDataAdapter da;
        
-
+        //registers new loan into the system
         public int Addloan(int loanntype, int copynum,int membernumber,string dateout,string datedue,string datereturned)
         {
-           
+         //gets the total number of dvds loan allowed from the category  and the member DOB 
             da = new SqlDataAdapter(" Select MembershipCategory.MembershipCategoryTotalLoans, DATEDIFF(YEAR, CONVERT(varchar(50), Member.MemberDateOfBirth, 105), GETDATE()) Age from MembershipCategory join Member on MembershipCategory.MembershipCategoryNumber = Member.MembershipCategoryNumber where Member.MemberNumber  = '" + membernumber + "';", gb.cn);
 
             DataSet ds = new DataSet();
@@ -30,7 +30,7 @@ namespace RopeyDVDs.Repository
             ds.Clear();
             dt.Clear();
 
-           
+           // gets the total dvd recently loaned by the user 
             da = new SqlDataAdapter("Select COUNT(Member.MemberNumber) Totalloan from Member full join Loan on Member.MemberNumber = Loan.MemberNumber where DateReturned is null and Member.MemberNumber  = '" + membernumber + "' group by member.MemberNumber;", gb.cn);
           
             da.Fill(ds, "MembershipCategory");
@@ -44,7 +44,7 @@ namespace RopeyDVDs.Repository
             {
                 return 2;
             }
-
+            // Checks wether the selected dvd is age restricted or not.
             da = new SqlDataAdapter("Select DVDCategory.AgeRestricted from DVDCategory join DVDTitle on DVDCategory.CategoryNumber = DVDTitle.CategoryNumber join DVDCopy on DVDTitle.DVDNumber = DVDCopy.DVDNumber where DVDCopy.CopyNumber = '" + copynum + "';", gb.cn);
 
             da.Fill(ds, "MembershipCategory");
@@ -55,7 +55,7 @@ namespace RopeyDVDs.Repository
             {
                 return 3;
             }
-
+            //adds the new loan to the table.
             cmd = new SqlCommand("Insert into Loan" + "(LoanTypeNumber,CopyNumber,MemberNumber,DateOut,DateDue,DateReturned) values " + "(@loanntype,@copynum,@membernumber,@dateout,@datedue,null)", gb.cn);
             cmd.Parameters.AddWithValue("@loanntype", loanntype);
             cmd.Parameters.AddWithValue("@copynum", copynum);
@@ -130,6 +130,7 @@ namespace RopeyDVDs.Repository
             }
             else
             {
+                //checks the returning due date and return date of dvd and calculates the penalty charge for the dvd.  
                 DateTime duedate = Convert.ToDateTime(datedue);
                 DateTime returneddate = Convert.ToDateTime(datereturned);
 
@@ -155,6 +156,7 @@ namespace RopeyDVDs.Repository
             return k;
         }
 
+        //deletes the loan of the dvd
         public int DeleteLoan(int id)
         {
             cmd = new SqlCommand("Delete from Loan where LoanNumber = @id", gb.cn);

@@ -22,6 +22,7 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+
         public int Adddvdcopy(int dvdnumber, string datepurchased)
         {
             cmd = new SqlCommand("Insert into DVDCopy" + "(DVDNumber,DatePurchased) values " + "(@dvdnumber,@datepurchased)", gb.cn);
@@ -41,7 +42,7 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
-
+        //takes edited details and updates the password.
         public int UpdateDvdCopy(int copynumber, int dvdnumber, string datepurchased)
         {
             cmd = new SqlCommand("Update DVDCopy set DVDNumber = @dvdnumber,DatePurchased=@datepurchased where CopyNumber = @copynumber", gb.cn);

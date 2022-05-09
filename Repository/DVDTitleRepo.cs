@@ -14,6 +14,7 @@ namespace RopeyDVDs.Repository
         SqlCommand cmd;
         SqlDataAdapter da;
         int k;
+        //Add new dvd title to the database
         public int Adddvdtitle(int actornum,int id, int catnumber, int studionum, int producernum,string dvdtitle,string daterelease,int standardcharge, int penaltycharge )
         {
             cmd = new SqlCommand("Insert into DVDTitle" + "(DVDNumber,CategoryNumber,StudioNumber,ProducerNumber,DVDTitle,DateReleased,StandardCharge,PenaltyCharge) values " + "(@id,@catnumber,@studionum,@producernum,@dvdtitle,@daterelease,@standardcharge,@penaltycharge)", gb.cn);
@@ -77,6 +78,7 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+        //Updates the new data in database
         public int UpdateDvdTitle(int dvdnumber, int catnumber, int studionum, int producernum, string dvdtitle, string daterelease, int standardcharge, int penaltycharge)
         {
             cmd = new SqlCommand("Update DVDTitle set CategoryNumber = @catnumber,StudioNumber=@studionum,ProducerNumber=@producernum,DVDTitle=@dvdtitle,DateReleased=@daterelease,StandardCharge=@standardcharge,PenaltyCharge=@penaltycharge where DVDNumber = @dvdnumber", gb.cn);
@@ -92,6 +94,7 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
+        //removes the dvdtitle from the database
         public int DeleteDvdtitle(int id)
         {
             cmd = new SqlCommand("Delete from DVDTitle where DVDNumber = @id", gb.cn);

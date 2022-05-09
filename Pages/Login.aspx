@@ -50,7 +50,8 @@
                     <div class="form-group row mb-2">
                         <label for="username" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                            <asp:TextBox ID="usernametxt" class="form-control" runat="server" placeholder="User Name"></asp:TextBox>
+                            <asp:TextBox ID="usernametxt"  class="form-control" runat="server" placeholder="User Name"></asp:TextBox>
+                              <asp:RequiredFieldValidator  Style="color:red" ControlToValidate="usernametxt" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Username."></asp:RequiredFieldValidator>               
                         </div>
                     </div>
 
@@ -61,13 +62,15 @@
                                 <asp:ListItem>Assistant</asp:ListItem>
                                 <asp:ListItem>Manager</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator  Style="color:red" ControlToValidate="roledrop" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please select your role."></asp:RequiredFieldValidator>    
                         </div>
                     </div>
 
                     <div class="form-group row  mb-2">
                         <label for="password" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <asp:TextBox ID="passwordtxt" class="form-control" runat="server" placeholder="Password"></asp:TextBox>
+                            <asp:TextBox ID="passwordtxt" TextMode="Password" class="form-control" runat="server" placeholder="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator  Style="color:red" ControlToValidate="passwordtxt" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Password."></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div>

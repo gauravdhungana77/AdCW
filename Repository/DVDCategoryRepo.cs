@@ -13,6 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
+        //adds new dvdcategory to the database
         public int AddDvdCategory(String categorydescription, String agerestricted)
         {
             cmd = new SqlCommand("Insert into DVDCategory" + "(CategoryDescription,AgeRestricted) values " + "(@categorydescription,@agerestricted)", gb.cn);
@@ -24,6 +25,7 @@ namespace RopeyDVDs.Repository
 
 
         }
+        //gets dvdcategory 
         public DataTable GetDvdCategory()
         {
             string qry = "Select * from DVDCategory";
@@ -32,6 +34,7 @@ namespace RopeyDVDs.Repository
             da.Fill(ds);
             return ds.Tables[0];
         }
+        //takes edited info and updates the current information of dvd category
         public int UpdateDvdCategory(int categorynumber, String categorydescription, String agerestricted)
         {
             cmd = new SqlCommand("Update DVDCategory set CategoryDescription = @categorydescription,AgeRestricted=@agerestricted where CategoryNumber = @categorynumber", gb.cn);
@@ -42,6 +45,8 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
+
+        //Removes the selected dvdcategory from the database
         public int DeleteDvdCategory(int id)
         {
             cmd = new SqlCommand("Delete from DVDCategory where CategoryNumber = @id", gb.cn);

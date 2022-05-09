@@ -13,6 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
+        //registers the new user into the system
         public int AddUser(String username, String usertype,string userpassword)
         {
             cmd = new SqlCommand("Insert into Users" + "(UserName,UserType,UserPassword) values " + "(@username,@usertype,@userpassword)", gb.cn);
@@ -23,7 +24,7 @@ namespace RopeyDVDs.Repository
             gb.cn.Close();
             return k;
         }
-
+        //Checks the presence of user in the system
         public DataTable CheckUser(string username)
         {
             string sql = "Select * from Users where UserName='" + username + "'";
@@ -32,7 +33,7 @@ namespace RopeyDVDs.Repository
             sda.Fill(ds, "Users");
             return ds.Tables[0];
         }
-
+        //Updates the user information
         public int UpdateUser(int usernumber,String Username, String Password,string role)
         {
             cmd = new SqlCommand("Update Users set UserName = @Username, UserType=@role,UserPassword=@Password where UserNumber = @usernumber", gb.cn);

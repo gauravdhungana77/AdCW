@@ -13,6 +13,9 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter sda;
+
+        //Checks whether the user is already registered or not
+
         public DataTable CheckUser(string username, string Password, string role)
         {
             string sql = "Select * from Users where UserName='" + username + "' and UserPassword='" + Password + "' and UserType='" + role + "'";

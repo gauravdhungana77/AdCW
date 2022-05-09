@@ -13,6 +13,7 @@ namespace RopeyDVDs.Repository
         GlobalConnection gb = new GlobalConnection();
         SqlCommand cmd;
         SqlDataAdapter da;
+        //Gets the dvd with DVD title  its producer, Studio and cast members
         public DataTable getdvddetailinfo()
         {
             string query = "Select Producer.ProducerNumber,Producer.ProducerName,Studio.StudioNumber,Studio.StudioName, DVDTitle.DVDTitle,DVDTitle.DateReleased, Actor.ActorNumber,Actor.ActorFirstName,Actor.ActorSurname from DVDTitle join Producer on DVDTitle.ProducerNumber = Producer.ProducerNumber join Studio on DVDTitle.StudioNumber =  Studio.StudioNumber join CastMember on DVDTitle.DVDNumber = CastMember.DVDNumber join Actor on CastMember.ActorNumber = Actor.ActorNumber order by CONVERT(varchar(50),DVDTitle.DateReleased,105),Actor.ActorSurname;";
